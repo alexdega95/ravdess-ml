@@ -1,0 +1,28 @@
+target = "emotion"
+task = "emotion"
+seed = 42
+metadata_columns = [
+  "modality", "vocal_channel", "emotion", "emotional_intensity", "statement",
+  "repetition", "actor", "sex", "filename",
+]
+train_actors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+test_actors = [19, 20, 21, 22, 23, 24]
+
+[dataset]
+variant = "cleaned"
+
+[classifier]
+n_estimators = 100
+random_state = 0
+
+[search]
+algorithm = "gradient_boosting"
+cv_folds = 5
+n_iter = 10
+selection_metric = "accuracy"
+parallel_jobs = 3
+
+[search.space]
+learning_rate = [0.1, 0.5, 1]
+max_depth = [3, 5, 7]
+min_samples_split = [10, 50, 100]

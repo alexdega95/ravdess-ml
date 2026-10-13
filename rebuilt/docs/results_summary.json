@@ -1,0 +1,538 @@
+{
+  "scope": "Index of saved evidence; no experiments executed to produce this summary.",
+  "completed_rebuilt": [
+    {
+      "label": "Raw-feature random forest",
+      "task": "emotion",
+      "inputs": "425 numeric",
+      "training_table_rows": 1828,
+      "final_fit_rows": 1828,
+      "test_rows": 624,
+      "method": "random_forest",
+      "selection_metric": "Fixed settings; no selection",
+      "metrics": {
+        "accuracy": 0.4423076923076923,
+        "f1_macro": 0.4155011969983793
+      },
+      "report": "baseline_results.json",
+      "validation_evidence": "validation.md"
+    },
+    {
+      "label": "Cleaned-feature random forest",
+      "task": "emotion",
+      "inputs": "197 numeric",
+      "training_table_rows": 1809,
+      "final_fit_rows": 1809,
+      "test_rows": 624,
+      "method": "random_forest",
+      "selection_metric": "mean_f1_macro",
+      "metrics": {
+        "accuracy": 0.421474358974359,
+        "f1_macro": 0.3942518378764347
+      },
+      "report": "tabular_results.json",
+      "validation_evidence": "tabular_analysis.md"
+    },
+    {
+      "label": "Gradient boosting",
+      "task": "emotion",
+      "inputs": "197 numeric",
+      "training_table_rows": 1809,
+      "final_fit_rows": 1809,
+      "test_rows": 624,
+      "method": "gradient_boosting_05",
+      "selection_metric": "mean_accuracy",
+      "metrics": {
+        "accuracy": 0.4599358974358974,
+        "f1_macro": 0.4520429520249779
+      },
+      "report": "gradient_boosting_results.json",
+      "validation_evidence": "boosting_analysis.md"
+    },
+    {
+      "label": "XGBoost",
+      "task": "emotion",
+      "inputs": "197 numeric",
+      "training_table_rows": 1809,
+      "final_fit_rows": 1809,
+      "test_rows": 624,
+      "method": "xgboost_02",
+      "selection_metric": "mean_accuracy",
+      "metrics": {
+        "accuracy": 0.44871794871794873,
+        "f1_macro": 0.4335177521117635
+      },
+      "report": "xgboost_results.json",
+      "validation_evidence": "boosting_analysis.md"
+    },
+    {
+      "label": "Dense network: dropout variant",
+      "task": "emotion",
+      "inputs": "202 numeric/categorical",
+      "training_table_rows": 1809,
+      "final_fit_rows": 1395,
+      "test_rows": 624,
+      "method": "dropout",
+      "selection_metric": "accuracy",
+      "metrics": {
+        "accuracy": 0.5128205128205128,
+        "f1_macro": 0.5027121514872126
+      },
+      "report": "neural_results.json",
+      "validation_evidence": "neural_artifact_validation.json"
+    },
+    {
+      "label": "Dense network: parameter search",
+      "task": "emotion",
+      "inputs": "202 numeric/categorical",
+      "training_table_rows": 1809,
+      "final_fit_rows": 1809,
+      "test_rows": 624,
+      "method": "search_05",
+      "selection_metric": "f1_macro",
+      "metrics": {
+        "accuracy": 0.5144230769230769,
+        "f1_macro": 0.5063590884593421
+      },
+      "report": "neural_search_results.json",
+      "validation_evidence": "neural_search_artifact_validation.json"
+    },
+    {
+      "label": "Waveform Euclidean 1-NN",
+      "task": "emotion",
+      "inputs": "raw [45000:100000]",
+      "training_table_rows": 1828,
+      "final_fit_rows": 1828,
+      "test_rows": 624,
+      "method": "euclidean",
+      "selection_metric": "mean_f1_macro",
+      "metrics": {
+        "accuracy": 0.1282051282051282,
+        "f1_macro": 0.09196175234872359
+      },
+      "report": "timeseries_emotion_results.json",
+      "validation_evidence": "timeseries_emotion_validation.json"
+    },
+    {
+      "label": "Binary linear SVM",
+      "task": "positive_negative",
+      "inputs": "197 numeric",
+      "training_table_rows": 1526,
+      "final_fit_rows": 1526,
+      "test_rows": 528,
+      "method": "svc_grid_05",
+      "selection_metric": "mean_accuracy",
+      "metrics": {
+        "accuracy": 0.6799242424242424,
+        "f1_macro": 0.6305628583849132,
+        "roc_auc": 0.7113405257936509
+      },
+      "report": "svm_results.json",
+      "validation_evidence": "svm_analysis.md"
+    },
+    {
+      "label": "Euclidean 1-NN",
+      "task": "vocal_channel",
+      "inputs": "compressed [5000:13000]",
+      "training_table_rows": 1828,
+      "final_fit_rows": 1828,
+      "test_rows": 624,
+      "method": "euclidean",
+      "selection_metric": "mean_f1_macro",
+      "metrics": {
+        "accuracy": 0.5817307692307693,
+        "f1_macro": 0.3782084321204
+      },
+      "report": "timeseries_vocal_results.json",
+      "validation_evidence": "timeseries_vocal_validation.json"
+    },
+    {
+      "label": "MiniROCKET",
+      "task": "vocal_channel",
+      "inputs": "compressed [5000:13000]",
+      "training_table_rows": 1828,
+      "final_fit_rows": 1828,
+      "test_rows": 624,
+      "method": "minirocket",
+      "selection_metric": "mean_f1_macro",
+      "metrics": {
+        "accuracy": 0.9855769230769231,
+        "f1_macro": 0.9852492731011986
+      },
+      "report": "timeseries_vocal_full_results.json",
+      "validation_evidence": "timeseries_vocal_full_validation.json"
+    },
+    {
+      "label": "Lasso: alpha=0.1",
+      "task": "kur_regression",
+      "inputs": "202 numeric/categorical",
+      "training_table_rows": 1809,
+      "final_fit_rows": 1809,
+      "test_rows": 624,
+      "method": "lasso_04",
+      "selection_metric": "mean_mse",
+      "metrics": {
+        "mse": 9.686070825644233,
+        "rmse": 3.1122453029355244,
+        "mae": 1.7825637326176202,
+        "r2": 0.7516454417530276
+      },
+      "report": "regression_results.json",
+      "validation_evidence": "regression_analysis.md"
+    }
+  ],
+  "historical_notebook_outputs": {
+    "kind": "historical_saved_notebook_outputs",
+    "precision": "Rounded exactly as displayed; not newly computed or independently reproduced.",
+    "large_run_policy": "Cancelled at user request; do not restart or launch comparable large experiments.",
+    "results": [
+      {
+        "notebook": "TIME SERIES/classification/emotion/dtw.ipynb",
+        "notebook_sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+        "cell_index_zero_based": 5,
+        "task": "emotion",
+        "method": "SAX + DTW",
+        "accuracy_displayed": "0.23",
+        "macro_f1_displayed": "0.21",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.23      0.38      0.29        96\n        calm       0.52      0.23      0.32        96\n     disgust       0.04      0.04      0.04        48\n     fearful       0.24      0.22      0.23        96\n       happy       0.22      0.29      0.25        96\n     neutral       0.20      0.17      0.18        48\n         sad       0.23      0.20      0.21        96\n   surprised       0.16      0.15      0.15        48\n\n    accuracy                           0.23       624\n   macro avg       0.23      0.21      0.21       624\nweighted avg       0.25      0.23      0.23       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/emotion/dtw.ipynb",
+        "notebook_sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+        "cell_index_zero_based": 6,
+        "task": "emotion",
+        "method": "SAX + Sakoe–Chiba DTW",
+        "accuracy_displayed": "0.24",
+        "macro_f1_displayed": "0.22",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.21      0.32      0.26        96\n        calm       0.47      0.22      0.30        96\n     disgust       0.08      0.06      0.07        48\n     fearful       0.23      0.19      0.21        96\n       happy       0.20      0.34      0.25        96\n     neutral       0.29      0.25      0.27        48\n         sad       0.30      0.22      0.25        96\n   surprised       0.22      0.17      0.19        48\n\n    accuracy                           0.24       624\n   macro avg       0.25      0.22      0.22       624\nweighted avg       0.26      0.24      0.23       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/emotion/dtw.ipynb",
+        "notebook_sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+        "cell_index_zero_based": 7,
+        "task": "emotion",
+        "method": "SAX + Itakura DTW",
+        "accuracy_displayed": "0.25",
+        "macro_f1_displayed": "0.25",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.21      0.31      0.25        96\n        calm       0.50      0.22      0.30        96\n     disgust       0.12      0.12      0.12        48\n     fearful       0.28      0.24      0.26        96\n       happy       0.22      0.32      0.26        96\n     neutral       0.28      0.27      0.28        48\n         sad       0.28      0.24      0.26        96\n   surprised       0.25      0.21      0.23        48\n\n    accuracy                           0.25       624\n   macro avg       0.27      0.24      0.25       624\nweighted avg       0.28      0.25      0.25       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/emotion/time_series_classification.ipynb",
+        "notebook_sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+        "cell_index_zero_based": 17,
+        "task": "emotion",
+        "method": "ROCKET",
+        "accuracy_displayed": "0.33",
+        "macro_f1_displayed": "0.33",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.39      0.40      0.39        96\n        calm       0.48      0.54      0.51        96\n     disgust       0.34      0.27      0.30        48\n     fearful       0.19      0.16      0.17        96\n       happy       0.28      0.33      0.30        96\n     neutral       0.47      0.42      0.44        48\n         sad       0.27      0.31      0.29        96\n   surprised       0.27      0.17      0.21        48\n\n    accuracy                           0.33       624\n   macro avg       0.33      0.32      0.33       624\nweighted avg       0.33      0.33      0.33       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/emotion/time_series_classification.ipynb",
+        "notebook_sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+        "cell_index_zero_based": 19,
+        "task": "emotion",
+        "method": "MiniROCKET",
+        "accuracy_displayed": "0.55",
+        "macro_f1_displayed": "0.54",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.56      0.83      0.67        96\n        calm       0.65      0.61      0.63        96\n     disgust       0.54      0.60      0.57        48\n     fearful       0.43      0.27      0.33        96\n       happy       0.52      0.50      0.51        96\n     neutral       0.70      0.54      0.61        48\n         sad       0.52      0.59      0.56        96\n   surprised       0.49      0.38      0.42        48\n\n    accuracy                           0.55       624\n   macro avg       0.55      0.54      0.54       624\nweighted avg       0.55      0.55      0.54       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/emotion/time_series_classification.ipynb",
+        "notebook_sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+        "cell_index_zero_based": 20,
+        "task": "emotion",
+        "method": "Euclidean 1-NN",
+        "accuracy_displayed": "0.17",
+        "macro_f1_displayed": "0.11",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       0.67      0.04      0.08        96\n           1       0.12      0.19      0.14        96\n           2       0.06      0.04      0.05        48\n           3       0.29      0.10      0.15        96\n           4       0.00      0.00      0.00        96\n           5       0.15      0.08      0.11        48\n           6       0.18      0.68      0.29        96\n           7       0.15      0.04      0.07        48\n\n    accuracy                           0.17       624\n   macro avg       0.20      0.15      0.11       624\nweighted avg       0.22      0.17      0.12       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/vocal channel/dtw_vocal.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 5,
+        "task": "vocal_channel",
+        "method": "SAX + DTW",
+        "accuracy_displayed": "0.76",
+        "macro_f1_displayed": "0.75",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.73      0.69      0.71       264\n      speech       0.78      0.81      0.80       360\n\n    accuracy                           0.76       624\n   macro avg       0.75      0.75      0.75       624\nweighted avg       0.76      0.76      0.76       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/vocal channel/dtw_vocal.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 6,
+        "task": "vocal_channel",
+        "method": "SAX + Sakoe–Chiba DTW",
+        "accuracy_displayed": "0.78",
+        "macro_f1_displayed": "0.78",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.72      0.79      0.75       264\n      speech       0.83      0.78      0.80       360\n\n    accuracy                           0.78       624\n   macro avg       0.78      0.78      0.78       624\nweighted avg       0.78      0.78      0.78       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/vocal channel/dtw_vocal.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 7,
+        "task": "vocal_channel",
+        "method": "SAX + Itakura DTW",
+        "accuracy_displayed": "0.80",
+        "macro_f1_displayed": "0.79",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.75      0.78      0.76       264\n      speech       0.83      0.81      0.82       360\n\n    accuracy                           0.80       624\n   macro avg       0.79      0.79      0.79       624\nweighted avg       0.80      0.80      0.80       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/vocal channel/time_series_classification_vocal.ipynb",
+        "notebook_sha256": "146ddab87d4ccf2cf2010c785e6247c7a66875ed998eefefc2dceed1239c9821",
+        "cell_index_zero_based": 17,
+        "task": "vocal_channel",
+        "method": "ROCKET",
+        "accuracy_displayed": "0.93",
+        "macro_f1_displayed": "0.93",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       0.92      0.92      0.92       264\n           1       0.94      0.94      0.94       360\n\n    accuracy                           0.93       624\n   macro avg       0.93      0.93      0.93       624\nweighted avg       0.93      0.93      0.93       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/vocal channel/time_series_classification_vocal.ipynb",
+        "notebook_sha256": "146ddab87d4ccf2cf2010c785e6247c7a66875ed998eefefc2dceed1239c9821",
+        "cell_index_zero_based": 19,
+        "task": "vocal_channel",
+        "method": "MiniROCKET",
+        "accuracy_displayed": "0.98",
+        "macro_f1_displayed": "0.98",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       0.98      0.98      0.98       264\n           1       0.99      0.98      0.99       360\n\n    accuracy                           0.98       624\n   macro avg       0.98      0.98      0.98       624\nweighted avg       0.98      0.98      0.98       624\n\n"
+      },
+      {
+        "notebook": "TIME SERIES/classification/vocal channel/time_series_classification_vocal.ipynb",
+        "notebook_sha256": "146ddab87d4ccf2cf2010c785e6247c7a66875ed998eefefc2dceed1239c9821",
+        "cell_index_zero_based": 20,
+        "task": "vocal_channel",
+        "method": "Euclidean 1-NN",
+        "accuracy_displayed": "0.58",
+        "macro_f1_displayed": "0.38",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       1.00      0.01      0.02       264\n           1       0.58      1.00      0.73       360\n\n    accuracy                           0.58       624\n   macro avg       0.79      0.51      0.38       624\nweighted avg       0.76      0.58      0.43       624\n\n"
+      },
+      {
+        "notebook": "dtw copy.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 5,
+        "task": "vocal_channel",
+        "method": "SAX + DTW",
+        "accuracy_displayed": "0.76",
+        "macro_f1_displayed": "0.75",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.73      0.69      0.71       264\n      speech       0.78      0.81      0.80       360\n\n    accuracy                           0.76       624\n   macro avg       0.75      0.75      0.75       624\nweighted avg       0.76      0.76      0.76       624\n\n"
+      },
+      {
+        "notebook": "dtw copy.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 6,
+        "task": "vocal_channel",
+        "method": "SAX + Sakoe–Chiba DTW",
+        "accuracy_displayed": "0.78",
+        "macro_f1_displayed": "0.78",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.72      0.79      0.75       264\n      speech       0.83      0.78      0.80       360\n\n    accuracy                           0.78       624\n   macro avg       0.78      0.78      0.78       624\nweighted avg       0.78      0.78      0.78       624\n\n"
+      },
+      {
+        "notebook": "dtw copy.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 7,
+        "task": "vocal_channel",
+        "method": "SAX + Itakura DTW",
+        "accuracy_displayed": "0.80",
+        "macro_f1_displayed": "0.79",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.75      0.78      0.76       264\n      speech       0.83      0.81      0.82       360\n\n    accuracy                           0.80       624\n   macro avg       0.79      0.79      0.79       624\nweighted avg       0.80      0.80      0.80       624\n\n"
+      },
+      {
+        "notebook": "dtw.ipynb",
+        "notebook_sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+        "cell_index_zero_based": 5,
+        "task": "emotion",
+        "method": "SAX + DTW",
+        "accuracy_displayed": "0.23",
+        "macro_f1_displayed": "0.21",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.23      0.38      0.29        96\n        calm       0.52      0.23      0.32        96\n     disgust       0.04      0.04      0.04        48\n     fearful       0.24      0.22      0.23        96\n       happy       0.22      0.29      0.25        96\n     neutral       0.20      0.17      0.18        48\n         sad       0.23      0.20      0.21        96\n   surprised       0.16      0.15      0.15        48\n\n    accuracy                           0.23       624\n   macro avg       0.23      0.21      0.21       624\nweighted avg       0.25      0.23      0.23       624\n\n"
+      },
+      {
+        "notebook": "dtw.ipynb",
+        "notebook_sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+        "cell_index_zero_based": 6,
+        "task": "emotion",
+        "method": "SAX + Sakoe–Chiba DTW",
+        "accuracy_displayed": "0.24",
+        "macro_f1_displayed": "0.22",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.21      0.32      0.26        96\n        calm       0.47      0.22      0.30        96\n     disgust       0.08      0.06      0.07        48\n     fearful       0.23      0.19      0.21        96\n       happy       0.20      0.34      0.25        96\n     neutral       0.29      0.25      0.27        48\n         sad       0.30      0.22      0.25        96\n   surprised       0.22      0.17      0.19        48\n\n    accuracy                           0.24       624\n   macro avg       0.25      0.22      0.22       624\nweighted avg       0.26      0.24      0.23       624\n\n"
+      },
+      {
+        "notebook": "dtw.ipynb",
+        "notebook_sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+        "cell_index_zero_based": 7,
+        "task": "emotion",
+        "method": "SAX + Itakura DTW",
+        "accuracy_displayed": "0.25",
+        "macro_f1_displayed": "0.25",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.21      0.31      0.25        96\n        calm       0.50      0.22      0.30        96\n     disgust       0.12      0.12      0.12        48\n     fearful       0.28      0.24      0.26        96\n       happy       0.22      0.32      0.26        96\n     neutral       0.28      0.27      0.28        48\n         sad       0.28      0.24      0.26        96\n   surprised       0.25      0.21      0.23        48\n\n    accuracy                           0.25       624\n   macro avg       0.27      0.24      0.25       624\nweighted avg       0.28      0.25      0.25       624\n\n"
+      },
+      {
+        "notebook": "dtw_vocal.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 5,
+        "task": "vocal_channel",
+        "method": "SAX + DTW",
+        "accuracy_displayed": "0.76",
+        "macro_f1_displayed": "0.75",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.73      0.69      0.71       264\n      speech       0.78      0.81      0.80       360\n\n    accuracy                           0.76       624\n   macro avg       0.75      0.75      0.75       624\nweighted avg       0.76      0.76      0.76       624\n\n"
+      },
+      {
+        "notebook": "dtw_vocal.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 6,
+        "task": "vocal_channel",
+        "method": "SAX + Sakoe–Chiba DTW",
+        "accuracy_displayed": "0.78",
+        "macro_f1_displayed": "0.78",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.72      0.79      0.75       264\n      speech       0.83      0.78      0.80       360\n\n    accuracy                           0.78       624\n   macro avg       0.78      0.78      0.78       624\nweighted avg       0.78      0.78      0.78       624\n\n"
+      },
+      {
+        "notebook": "dtw_vocal.ipynb",
+        "notebook_sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+        "cell_index_zero_based": 7,
+        "task": "vocal_channel",
+        "method": "SAX + Itakura DTW",
+        "accuracy_displayed": "0.80",
+        "macro_f1_displayed": "0.79",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n        song       0.75      0.78      0.76       264\n      speech       0.83      0.81      0.82       360\n\n    accuracy                           0.80       624\n   macro avg       0.79      0.79      0.79       624\nweighted avg       0.80      0.80      0.80       624\n\n"
+      },
+      {
+        "notebook": "time_series_classification.ipynb",
+        "notebook_sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+        "cell_index_zero_based": 17,
+        "task": "emotion",
+        "method": "ROCKET",
+        "accuracy_displayed": "0.33",
+        "macro_f1_displayed": "0.33",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.39      0.40      0.39        96\n        calm       0.48      0.54      0.51        96\n     disgust       0.34      0.27      0.30        48\n     fearful       0.19      0.16      0.17        96\n       happy       0.28      0.33      0.30        96\n     neutral       0.47      0.42      0.44        48\n         sad       0.27      0.31      0.29        96\n   surprised       0.27      0.17      0.21        48\n\n    accuracy                           0.33       624\n   macro avg       0.33      0.32      0.33       624\nweighted avg       0.33      0.33      0.33       624\n\n"
+      },
+      {
+        "notebook": "time_series_classification.ipynb",
+        "notebook_sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+        "cell_index_zero_based": 19,
+        "task": "emotion",
+        "method": "MiniROCKET",
+        "accuracy_displayed": "0.55",
+        "macro_f1_displayed": "0.54",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n       angry       0.56      0.83      0.67        96\n        calm       0.65      0.61      0.63        96\n     disgust       0.54      0.60      0.57        48\n     fearful       0.43      0.27      0.33        96\n       happy       0.52      0.50      0.51        96\n     neutral       0.70      0.54      0.61        48\n         sad       0.52      0.59      0.56        96\n   surprised       0.49      0.38      0.42        48\n\n    accuracy                           0.55       624\n   macro avg       0.55      0.54      0.54       624\nweighted avg       0.55      0.55      0.54       624\n\n"
+      },
+      {
+        "notebook": "time_series_classification.ipynb",
+        "notebook_sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+        "cell_index_zero_based": 20,
+        "task": "emotion",
+        "method": "Euclidean 1-NN",
+        "accuracy_displayed": "0.17",
+        "macro_f1_displayed": "0.11",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       0.67      0.04      0.08        96\n           1       0.12      0.19      0.14        96\n           2       0.06      0.04      0.05        48\n           3       0.29      0.10      0.15        96\n           4       0.00      0.00      0.00        96\n           5       0.15      0.08      0.11        48\n           6       0.18      0.68      0.29        96\n           7       0.15      0.04      0.07        48\n\n    accuracy                           0.17       624\n   macro avg       0.20      0.15      0.11       624\nweighted avg       0.22      0.17      0.12       624\n\n"
+      },
+      {
+        "notebook": "time_series_classification_vocal.ipynb",
+        "notebook_sha256": "cd7c0836eb39d8964918aaab86859344d51a6625b1a0547afb87f75e30735950",
+        "cell_index_zero_based": 17,
+        "task": "vocal_channel",
+        "method": "ROCKET",
+        "accuracy_displayed": "0.92",
+        "macro_f1_displayed": "0.92",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       0.89      0.92      0.91       264\n           1       0.94      0.92      0.93       360\n\n    accuracy                           0.92       624\n   macro avg       0.92      0.92      0.92       624\nweighted avg       0.92      0.92      0.92       624\n\n"
+      },
+      {
+        "notebook": "time_series_classification_vocal.ipynb",
+        "notebook_sha256": "cd7c0836eb39d8964918aaab86859344d51a6625b1a0547afb87f75e30735950",
+        "cell_index_zero_based": 19,
+        "task": "vocal_channel",
+        "method": "MiniROCKET",
+        "accuracy_displayed": "0.99",
+        "macro_f1_displayed": "0.99",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       0.98      0.99      0.99       264\n           1       0.99      0.99      0.99       360\n\n    accuracy                           0.99       624\n   macro avg       0.99      0.99      0.99       624\nweighted avg       0.99      0.99      0.99       624\n\n"
+      },
+      {
+        "notebook": "time_series_classification_vocal.ipynb",
+        "notebook_sha256": "cd7c0836eb39d8964918aaab86859344d51a6625b1a0547afb87f75e30735950",
+        "cell_index_zero_based": 20,
+        "task": "vocal_channel",
+        "method": "Euclidean 1-NN",
+        "accuracy_displayed": "0.58",
+        "macro_f1_displayed": "0.38",
+        "test_recordings": 624,
+        "saved_classification_report": "              precision    recall  f1-score   support\n\n           0       1.00      0.01      0.02       264\n           1       0.58      1.00      0.73       360\n\n    accuracy                           0.58       624\n   macro avg       0.79      0.51      0.38       624\nweighted avg       0.76      0.58      0.43       624\n\n"
+      }
+    ]
+  },
+  "historical_neural_checkpoint_reload": {
+    "check": "Read-only reload of legacy HDF5 checkpoints with full-training notebook-style preprocessing, current TensorFlow; not a retraining experiment.",
+    "models": {
+      "best_model_DROPOUT.h5": {
+        "sha256": "fd6bc9b6f4e821f0b40f1b61292447455f202e8493a07742742719075c49f20e",
+        "accuracy": 0.5,
+        "f1_macro": 0.47635948515696713,
+        "predictions_finite": true
+      },
+      "best_model_L1.h5": {
+        "sha256": "bbfa0a4540adf9a6ad59836c23d4c03ed40fb70effbd5287cc89bb687434792c",
+        "accuracy": 0.44871794871794873,
+        "f1_macro": 0.4107944309808129,
+        "predictions_finite": true
+      },
+      "best_model_L2.h5": {
+        "sha256": "40ba69f75907e85455ecea36b6636e1e7c24bcc46d08780ab6838a08614089d4",
+        "accuracy": 0.47435897435897434,
+        "f1_macro": 0.451239744118074,
+        "predictions_finite": true
+      },
+      "best_model_NOREG.h5": {
+        "sha256": "e496ce72dc1fb8ae2cf24a04291fc93107c2d83e9ff88532c165f31abfd02c27",
+        "accuracy": 0.391025641025641,
+        "f1_macro": 0.3533497806034568,
+        "predictions_finite": true
+      }
+    }
+  },
+  "cancelled_incomplete": [
+    "sax-dtw-emotion-001",
+    "sax-dtw-vocal-001",
+    "timeseries-emotion-full-003"
+  ],
+  "large_run_policy": "Do not launch or resume comparably long experiments without an explicit user request.",
+  "source_report_sha256": {
+    "baseline_results.json": "a963d27708f925a326b5f639e4b9d4d5b039c919c2aaa119af65e388b864e61c",
+    "tabular_results.json": "192ead83ad8541992357b95e0d89385b85eb4234b68c4389c0c2f19a03c76caf",
+    "gradient_boosting_results.json": "296155061c48876484b3ccd74fdb9655ba60062ac24929e484a4a9c7edc713fc",
+    "xgboost_results.json": "f9ffe50c989d255958f58ed991558772a20a65e627a2ac7a01f50b010abf6bdc",
+    "neural_results.json": "9a7ba8e21527e1e015d044d13725744502a61700860f4e3a3dce0847e62c483c",
+    "neural_search_results.json": "555b05a948e9a150522832fb29e07feea28d3768ed0d6b29f35e77f384636be5",
+    "timeseries_emotion_results.json": "6a6fec4a490614b9888fc73709f8eb40c05ca7349b3d5cb435df6750ecf52cd8",
+    "svm_results.json": "304b7619ee3c65dc04551f6b445339f10f43c3edb7e33d3d03fb05bc03262a65",
+    "timeseries_vocal_results.json": "6ffef31f733ef2ac4fe78b5c118a2cf7109d294b3574a952bc438011c849805f",
+    "timeseries_vocal_full_results.json": "54cbf5b5c3d50415ce6f2d4aec647ca15de557514154d493aad1f97fa7c44742",
+    "regression_results.json": "af0a6a244532d071e063648ddeb9eae8e8629633016e8df09fd8d81be7a6da4e",
+    "legacy_timeseries_results.json": "b27477fd0d1cea2fb13008c6672126b59d4257ea1b1369d77551e8b96f29187e",
+    "neural_legacy_comparison.json": "2c0d7ad42c9ca8dbadd57dbc6771e5ad91fbdbf822b8fb9eb6ae9f3ca4567a4f"
+  }
+}

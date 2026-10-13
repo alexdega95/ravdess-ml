@@ -1,0 +1,146 @@
+{
+  "experiment": "notebook_sax_dtw_preparation_v1",
+  "config": {
+    "target": "vocal_channel",
+    "seed": 42,
+    "train_actors": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "test_actors": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "time_series": {
+      "representation": "compressed",
+      "start": 5000,
+      "stop": 13000
+    },
+    "sax_dtw": {
+      "n_segments": 1000,
+      "alphabet_size_avg": 50,
+      "metrics": [
+        "dtw",
+        "dtw_sakoechiba",
+        "dtw_itakura"
+      ]
+    }
+  },
+  "config_sha256": "23583890e6ade1733ff74b4a68657b46d9ba1bed42ea7b421fcde47ff9290de9",
+  "inputs": {
+    "train": {
+      "path": "RavdessAudioOnlyNumpy__X_train_compresso.npy",
+      "sha256": "99827604d6e4daa7f0766e67d3d9951856c4fb534eb56e30e57d42688867171a",
+      "metadata_path": "RavdessAudioOnlyNumpy__Y_train.csv",
+      "metadata_sha256": "548a3121f8f4f26718101c696b2b08b77470218ca33076fe82bece62dd1ed769",
+      "rows": 1828,
+      "timesteps": 8000,
+      "target": "vocal_channel",
+      "representation": "compressed",
+      "interval": [
+        5000,
+        13000
+      ],
+      "actors": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "class_counts": {
+        "song": 748,
+        "speech": 1080
+      },
+      "nonfinite_in_selected_interval": 0
+    },
+    "test": {
+      "path": "RavdessAudioOnlyNumpy__X_test_compresso.npy",
+      "sha256": "924889e03fcc75ca18f79fedb987d53620606e54b93f75ffe6bcb4c6b216aaee",
+      "metadata_path": "RavdessAudioOnlyNumpy__Y_test.csv",
+      "metadata_sha256": "659cdfe757362ef1f2c01ef1c0e7c096e8c7b4850152eaa47239e11346f74f39",
+      "rows": 624,
+      "timesteps": 8000,
+      "target": "vocal_channel",
+      "representation": "compressed",
+      "interval": [
+        5000,
+        13000
+      ],
+      "actors": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "class_counts": {
+        "song": 264,
+        "speech": 360
+      },
+      "nonfinite_in_selected_interval": 0
+    }
+  },
+  "environment": {
+    "python": "3.13.14",
+    "platform": "Linux-7.2.9-1-cachyos-x86_64-with-glibc2.44",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.7.2",
+      "joblib": "1.5.3",
+      "threadpoolctl": "3.7.0",
+      "tslearn": "0.9.0",
+      "pyts": "0.14.0",
+      "numba": "0.68.0"
+    }
+  },
+  "validation": {
+    "all_notebook_symbols_exact": true,
+    "training_rows": 1828,
+    "test_rows": 624
+  },
+  "evaluation": {
+    "protocol": "Fit each original metric on actors 1–18; evaluate actors 19–24.",
+    "model_selection": "None; report all configured metrics, as in the notebooks."
+  },
+  "artifact_sha256": {
+    "preprocessor.joblib": "5e5bbe8b53ed61c90f5ab5a2db8067004d6be95e62fbb4b4eb07dd4a6360bd51",
+    "sax_train.npy": "3327000dafaef32b6b37a85853ef713c7cd97f5607a9f5f723804b225c5bdafa",
+    "sax_test.npy": "086f2d427c68beb1e0363bc819fc765bfe5156ebbcd07d2c50df7e99cdb14f1f"
+  }
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ravdess-rebuild"
+version = "0.1.0"
+description = "Reproducible actor-held-out emotion classification from supplied RAVDESS features"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2,<3", "scikit-learn>=1.6,<2", "joblib>=1.4,<2"]
+
+[project.optional-dependencies]
+xgboost = ["xgboost>=3,<4"]
+neural = ["tensorflow-cpu==2.21.0"]
+timeseries = ["sktime>=0.35,<1", "tslearn>=0.6,<1", "pyts>=0.13,<1"]
+
+[project.scripts]
+ravdess = "ravdess_project.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

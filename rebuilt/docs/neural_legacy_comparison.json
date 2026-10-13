@@ -1,0 +1,29 @@
+{
+  "check": "Read-only reload of legacy HDF5 checkpoints with full-training notebook-style preprocessing, current TensorFlow; not a retraining experiment.",
+  "models": {
+    "best_model_DROPOUT.h5": {
+      "sha256": "fd6bc9b6f4e821f0b40f1b61292447455f202e8493a07742742719075c49f20e",
+      "accuracy": 0.5,
+      "f1_macro": 0.47635948515696713,
+      "predictions_finite": true
+    },
+    "best_model_L1.h5": {
+      "sha256": "bbfa0a4540adf9a6ad59836c23d4c03ed40fb70effbd5287cc89bb687434792c",
+      "accuracy": 0.44871794871794873,
+      "f1_macro": 0.4107944309808129,
+      "predictions_finite": true
+    },
+    "best_model_L2.h5": {
+      "sha256": "40ba69f75907e85455ecea36b6636e1e7c24bcc46d08780ab6838a08614089d4",
+      "accuracy": 0.47435897435897434,
+      "f1_macro": 0.451239744118074,
+      "predictions_finite": true
+    },
+    "best_model_NOREG.h5": {
+      "sha256": "e496ce72dc1fb8ae2cf24a04291fc93107c2d83e9ff88532c165f31abfd02c27",
+      "accuracy": 0.391025641025641,
+      "f1_macro": 0.3533497806034568,
+      "predictions_finite": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+target = "emotion"
+seed = 42
+train_actors = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+test_actors = [19,20,21,22,23,24]
+
+[time_series]
+representation = "raw"
+start = 45000
+stop = 130000
+
+[sax_dtw]
+n_segments = 1000
+alphabet_size_avg = 50
+metrics = ["dtw", "dtw_sakoechiba", "dtw_itakura"]

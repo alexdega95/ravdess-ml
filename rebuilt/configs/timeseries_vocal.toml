@@ -1,0 +1,15 @@
+target = "vocal_channel"
+seed = 42
+train_actors = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+test_actors = [19,20,21,22,23,24]
+
+[time_series]
+representation = "compressed"
+start = 5000
+stop = 13000
+cv_folds = 5
+methods = ["majority", "euclidean", "rocket", "minirocket"]
+num_kernels = 10000
+transform_jobs = 2
+reuse_rocket_features = true
+rocket_batch_size = 32

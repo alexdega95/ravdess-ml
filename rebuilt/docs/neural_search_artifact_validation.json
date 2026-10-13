@@ -1,0 +1,10 @@
+{
+  "run": "neural-search-001",
+  "selected_method": "search_05",
+  "predictions_verified": 624,
+  "preprocessing_matches_notebook_exactly": true,
+  "actor_isolation_verified": true,
+  "probabilities_finite": true,
+  "current_source_matches": true,
+  "current_config_matches": true
+}

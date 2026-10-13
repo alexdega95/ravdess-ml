@@ -1,0 +1,42 @@
+{
+  "check": "Independent recreation of notebook encoding/scaling with current libraries; not a historical rerun.",
+  "train_rows": 1809,
+  "test_rows": 624,
+  "predictors": 202,
+  "categorical_predictors": [
+    "vocal_channel",
+    "emotion",
+    "emotional_intensity",
+    "statement",
+    "repetition",
+    "sex"
+  ],
+  "train_transform_exact": true,
+  "test_transform_exact": true,
+  "fixed_historical_settings_metrics": {
+    "linear": {
+      "mse": 9.682513958728213,
+      "rmse": 3.1116738194624793,
+      "mae": 2.112159083538798,
+      "r2": 0.7517366411802848
+    },
+    "lasso_alpha_0.01": {
+      "mse": 9.045267029601831,
+      "rmse": 3.007535042123671,
+      "mae": 1.9319571053745885,
+      "r2": 0.768075896016045
+    },
+    "ridge_alpha_0.99": {
+      "mse": 9.534613800463754,
+      "rmse": 3.087816995947745,
+      "mae": 2.0767147204163936,
+      "r2": 0.7555288577696142
+    },
+    "gradient_boosting": {
+      "mse": 9.39999433118805,
+      "rmse": 3.065941018869745,
+      "mae": 1.8057006779823013,
+      "r2": 0.7589805524170343
+    }
+  }
+}

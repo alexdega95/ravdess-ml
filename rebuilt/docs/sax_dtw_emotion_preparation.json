@@ -1,0 +1,158 @@
+{
+  "experiment": "notebook_sax_dtw_preparation_v1",
+  "config": {
+    "target": "emotion",
+    "seed": 42,
+    "train_actors": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "test_actors": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "time_series": {
+      "representation": "raw",
+      "start": 45000,
+      "stop": 130000
+    },
+    "sax_dtw": {
+      "n_segments": 1000,
+      "alphabet_size_avg": 50,
+      "metrics": [
+        "dtw",
+        "dtw_sakoechiba",
+        "dtw_itakura"
+      ]
+    }
+  },
+  "config_sha256": "409f14a7b6d05784355dcc0fc8c0acc31df842f2c5f07f738c7c89f36c2eb2a9",
+  "inputs": {
+    "train": {
+      "path": "RavdessAudioOnlyNumpy__X_train.npy",
+      "sha256": "34e2a4a0753ee6b84ae832a23376f41b037f2c69699aefb066d27a0b709f8b68",
+      "metadata_path": "RavdessAudioOnlyNumpy__Y_train.csv",
+      "metadata_sha256": "548a3121f8f4f26718101c696b2b08b77470218ca33076fe82bece62dd1ed769",
+      "rows": 1828,
+      "timesteps": 85000,
+      "target": "emotion",
+      "representation": "raw",
+      "interval": [
+        45000,
+        130000
+      ],
+      "actors": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "class_counts": {
+        "angry": 280,
+        "calm": 280,
+        "disgust": 144,
+        "fearful": 280,
+        "happy": 280,
+        "neutral": 140,
+        "sad": 280,
+        "surprised": 144
+      },
+      "nonfinite_in_selected_interval": 0
+    },
+    "test": {
+      "path": "RavdessAudioOnlyNumpy__X_test.npy",
+      "sha256": "b96cafa4523cab033b1cedce482daa689752bef9974ae7415758296695736d45",
+      "metadata_path": "RavdessAudioOnlyNumpy__Y_test.csv",
+      "metadata_sha256": "659cdfe757362ef1f2c01ef1c0e7c096e8c7b4850152eaa47239e11346f74f39",
+      "rows": 624,
+      "timesteps": 85000,
+      "target": "emotion",
+      "representation": "raw",
+      "interval": [
+        45000,
+        130000
+      ],
+      "actors": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "class_counts": {
+        "angry": 96,
+        "calm": 96,
+        "disgust": 48,
+        "fearful": 96,
+        "happy": 96,
+        "neutral": 48,
+        "sad": 96,
+        "surprised": 48
+      },
+      "nonfinite_in_selected_interval": 0
+    }
+  },
+  "environment": {
+    "python": "3.13.14",
+    "platform": "Linux-7.2.9-1-cachyos-x86_64-with-glibc2.44",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.7.2",
+      "joblib": "1.5.3",
+      "threadpoolctl": "3.7.0",
+      "tslearn": "0.9.0",
+      "pyts": "0.14.0",
+      "numba": "0.68.0"
+    }
+  },
+  "validation": {
+    "all_notebook_symbols_exact": true,
+    "training_rows": 1828,
+    "test_rows": 624
+  },
+  "evaluation": {
+    "protocol": "Fit each original metric on actors 1–18; evaluate actors 19–24.",
+    "model_selection": "None; report all configured metrics, as in the notebooks."
+  },
+  "artifact_sha256": {
+    "preprocessor.joblib": "87cbfd1ba0f21af529ccbc7673f17529b25964df34dcb8a4a2f649f503269f9b",
+    "sax_train.npy": "cd4db3ed733ba6ed3d0e7724b22ce3bd3092b4be0561cc957b88c9992591d676",
+    "sax_test.npy": "9363f99858a98f284c60ed89e548c4b0c0d1addd2f0b238a61ea654c529dc4be"
+  }
+}

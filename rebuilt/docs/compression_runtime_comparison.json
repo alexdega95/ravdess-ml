@@ -1,0 +1,20 @@
+{
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.18.1"
+  },
+  "partitions": {
+    "train": {
+      "rows_checked": 1828,
+      "candidate_identical_to_previous_runtime": true,
+      "max_absolute_difference_from_original": 2.952292561531067e-07,
+      "largest_difference_filename": "03-01-06-02-02-01-01.wav"
+    },
+    "test": {
+      "rows_checked": 624,
+      "candidate_identical_to_previous_runtime": true,
+      "max_absolute_difference_from_original": 8.265487849712372e-08,
+      "largest_difference_filename": "03-01-05-01-02-02-19.wav"
+    }
+  }
+}

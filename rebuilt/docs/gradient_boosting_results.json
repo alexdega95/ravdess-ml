@@ -1,0 +1,2966 @@
+{
+  "experiment": "gradient_boosting_training_actor_search_v1",
+  "created_at_utc": "2026-10-13T09:27:21.974228+00:00",
+  "historical_equivalence": "Not claimed; this is a new experiment.",
+  "config": {
+    "target": "emotion",
+    "task": "emotion",
+    "seed": 42,
+    "metadata_columns": [
+      "modality",
+      "vocal_channel",
+      "emotion",
+      "emotional_intensity",
+      "statement",
+      "repetition",
+      "actor",
+      "sex",
+      "filename"
+    ],
+    "train_actors": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "test_actors": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "dataset": {
+      "variant": "cleaned"
+    },
+    "classifier": {
+      "n_estimators": 100,
+      "random_state": 0
+    },
+    "search": {
+      "algorithm": "gradient_boosting",
+      "cv_folds": 5,
+      "n_iter": 10,
+      "selection_metric": "accuracy",
+      "parallel_jobs": 3,
+      "space": {
+        "learning_rate": [
+          0.1,
+          0.5,
+          1
+        ],
+        "max_depth": [
+          3,
+          5,
+          7
+        ],
+        "min_samples_split": [
+          10,
+          50,
+          100
+        ]
+      }
+    }
+  },
+  "config_sha256": "4c51d696f5c0409bdb9bbc620e15b804bd22940fae44cb73e3e696f0404e2699",
+  "source_sha256": {
+    "__init__.py": "4a1010c3bd85e504c90b1b9d792ac2b2322601e8cbdacf20122e8d8c773abe6b",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "9471d22a0e49e184c2848b2c4d2f665b9a0eb4667a65c77a06a1ad57cffef633",
+    "data.py": "6c98d61fe3af1b989822ef63610486d20cf2681a963fadb3c59b17c5c2a8d45f",
+    "experiment.py": "e9b9ee409630779b2b1050e896b5c469c4f32abc9d5c8076452031276dd170c8",
+    "model_search.py": "8a8a8bd61e5d43b427b12b48b2a4e300535f9994e792f3f330fcbba409c0b01f",
+    "reporting.py": "d8a40ee9c806db8e96f5025aff41c37d9d8c0a70019a50dace593707a7dc7b3a",
+    "tabular.py": "64ac6a09eedc1205ed341660552a75b847d909f54c07367e97bb9c3ec4ccdd8d",
+    "validation.py": "dbc74b4c6548ff96729316cbd1480c50138827a0031b89ac0710267513410b25"
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Linux-7.2.9-1-cachyos-x86_64-with-glibc2.44",
+    "packages": {
+      "numpy": "2.4.2",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "threadpoolctl": "3.6.0"
+    }
+  },
+  "inputs": {
+    "train": {
+      "sha256": "4d8bd5f1720510406ac2ad9f2c1d6b1d2023e2a906ee00b50db3893bb7c7e65e",
+      "rows": 1809,
+      "numeric_features": 197,
+      "feature_names": [
+        "sum",
+        "std",
+        "q25",
+        "q50",
+        "q75",
+        "kur",
+        "skew",
+        "lag1_sum",
+        "lag1_q25",
+        "lag1_kur",
+        "lag1_skew",
+        "zc_sum",
+        "zc_mean",
+        "zc_q95",
+        "mfcc_sum",
+        "mfcc_mean",
+        "mfcc_std",
+        "mfcc_max",
+        "mfcc_q05",
+        "mfcc_q25",
+        "mfcc_q50",
+        "mfcc_q75",
+        "mfcc_q95",
+        "mfcc_q99",
+        "mfcc_kur",
+        "mfcc_skew",
+        "sc_sum",
+        "sc_mean",
+        "sc_std",
+        "sc_min",
+        "sc_max",
+        "sc_q01",
+        "sc_q05",
+        "sc_q25",
+        "sc_q50",
+        "sc_q75",
+        "sc_q95",
+        "sc_q99",
+        "sc_kur",
+        "sc_skew",
+        "stft_sum",
+        "stft_mean",
+        "stft_std",
+        "stft_min",
+        "stft_q01",
+        "stft_kur",
+        "length_w1",
+        "sum_w1",
+        "std_w1",
+        "q05_w1",
+        "q25_w1",
+        "q50_w1",
+        "kur_w1",
+        "skew_w1",
+        "lag1_sum_w1",
+        "lag1_q05_w1",
+        "lag1_q25_w1",
+        "lag1_kur_w1",
+        "lag1_skew_w1",
+        "zc_sum_w1",
+        "zc_q95_w1",
+        "zc_q99_w1",
+        "zc_kur_w1",
+        "mfcc_sum_w1",
+        "mfcc_mean_w1",
+        "mfcc_std_w1",
+        "mfcc_min_w1",
+        "mfcc_max_w1",
+        "mfcc_q05_w1",
+        "mfcc_q25_w1",
+        "mfcc_q50_w1",
+        "mfcc_q75_w1",
+        "mfcc_q95_w1",
+        "mfcc_q99_w1",
+        "mfcc_kur_w1",
+        "sc_sum_w1",
+        "sc_mean_w1",
+        "sc_std_w1",
+        "sc_min_w1",
+        "sc_max_w1",
+        "sc_q25_w1",
+        "sc_q75_w1",
+        "sc_q95_w1",
+        "sc_kur_w1",
+        "sc_skew_w1",
+        "stft_sum_w1",
+        "stft_mean_w1",
+        "stft_std_w1",
+        "stft_min_w1",
+        "stft_q05_w1",
+        "stft_q75_w1",
+        "stft_q95_w1",
+        "stft_kur_w1",
+        "stft_skew_w1",
+        "length_w2",
+        "sum_w2",
+        "q50_w2",
+        "kur_w2",
+        "skew_w2",
+        "lag1_sum_w2",
+        "lag1_q50_w2",
+        "lag1_skew_w2",
+        "zc_sum_w2",
+        "zc_q95_w2",
+        "mfcc_min_w2",
+        "mfcc_max_w2",
+        "mfcc_q75_w2",
+        "mfcc_q95_w2",
+        "mfcc_kur_w2",
+        "mfcc_skew_w2",
+        "sc_sum_w2",
+        "sc_mean_w2",
+        "sc_std_w2",
+        "sc_min_w2",
+        "sc_max_w2",
+        "sc_q05_w2",
+        "sc_q25_w2",
+        "sc_q50_w2",
+        "sc_kur_w2",
+        "stft_sum_w2",
+        "stft_mean_w2",
+        "stft_std_w2",
+        "stft_min_w2",
+        "length_w3",
+        "sum_w3",
+        "q50_w3",
+        "kur_w3",
+        "skew_w3",
+        "lag1_sum_w3",
+        "lag1_q50_w3",
+        "lag1_kur_w3",
+        "lag1_skew_w3",
+        "zc_sum_w3",
+        "zc_q95_w3",
+        "mfcc_mean_w3",
+        "mfcc_max_w3",
+        "mfcc_q05_w3",
+        "mfcc_q95_w3",
+        "mfcc_q99_w3",
+        "mfcc_kur_w3",
+        "mfcc_skew_w3",
+        "sc_sum_w3",
+        "sc_mean_w3",
+        "sc_std_w3",
+        "sc_min_w3",
+        "sc_max_w3",
+        "sc_q25_w3",
+        "sc_kur_w3",
+        "stft_sum_w3",
+        "stft_mean_w3",
+        "stft_std_w3",
+        "stft_min_w3",
+        "length_w4",
+        "sum_w4",
+        "std_w4",
+        "q05_w4",
+        "q25_w4",
+        "q50_w4",
+        "q75_w4",
+        "kur_w4",
+        "skew_w4",
+        "lag1_sum_w4",
+        "lag1_q25_w4",
+        "lag1_kur_w4",
+        "lag1_skew_w4",
+        "zc_sum_w4",
+        "zc_q75_w4",
+        "zc_q95_w4",
+        "zc_q99_w4",
+        "zc_kur_w4",
+        "zc_skew_w4",
+        "mfcc_sum_w4",
+        "mfcc_mean_w4",
+        "mfcc_std_w4",
+        "mfcc_max_w4",
+        "mfcc_q05_w4",
+        "mfcc_q25_w4",
+        "mfcc_q50_w4",
+        "mfcc_q95_w4",
+        "mfcc_q99_w4",
+        "mfcc_kur_w4",
+        "mfcc_skew_w4",
+        "sc_sum_w4",
+        "sc_mean_w4",
+        "sc_std_w4",
+        "sc_min_w4",
+        "sc_max_w4",
+        "sc_q25_w4",
+        "sc_kur_w4",
+        "sc_skew_w4",
+        "stft_sum_w4",
+        "stft_mean_w4",
+        "stft_std_w4",
+        "stft_min_w4",
+        "stft_q95_w4",
+        "stft_kur_w4",
+        "stft_skew_w4"
+      ],
+      "actors": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "class_counts": {
+        "angry": 279,
+        "calm": 277,
+        "disgust": 142,
+        "fearful": 273,
+        "happy": 277,
+        "neutral": 140,
+        "sad": 278,
+        "surprised": 143
+      }
+    },
+    "test": {
+      "sha256": "bb08a918287f514790c1fed3164c987602f899488c539aa48cbfd95c6c3996d5",
+      "rows": 624,
+      "numeric_features": 197,
+      "feature_names": [
+        "sum",
+        "std",
+        "q25",
+        "q50",
+        "q75",
+        "kur",
+        "skew",
+        "lag1_sum",
+        "lag1_q25",
+        "lag1_kur",
+        "lag1_skew",
+        "zc_sum",
+        "zc_mean",
+        "zc_q95",
+        "mfcc_sum",
+        "mfcc_mean",
+        "mfcc_std",
+        "mfcc_max",
+        "mfcc_q05",
+        "mfcc_q25",
+        "mfcc_q50",
+        "mfcc_q75",
+        "mfcc_q95",
+        "mfcc_q99",
+        "mfcc_kur",
+        "mfcc_skew",
+        "sc_sum",
+        "sc_mean",
+        "sc_std",
+        "sc_min",
+        "sc_max",
+        "sc_q01",
+        "sc_q05",
+        "sc_q25",
+        "sc_q50",
+        "sc_q75",
+        "sc_q95",
+        "sc_q99",
+        "sc_kur",
+        "sc_skew",
+        "stft_sum",
+        "stft_mean",
+        "stft_std",
+        "stft_min",
+        "stft_q01",
+        "stft_kur",
+        "length_w1",
+        "sum_w1",
+        "std_w1",
+        "q05_w1",
+        "q25_w1",
+        "q50_w1",
+        "kur_w1",
+        "skew_w1",
+        "lag1_sum_w1",
+        "lag1_q05_w1",
+        "lag1_q25_w1",
+        "lag1_kur_w1",
+        "lag1_skew_w1",
+        "zc_sum_w1",
+        "zc_q95_w1",
+        "zc_q99_w1",
+        "zc_kur_w1",
+        "mfcc_sum_w1",
+        "mfcc_mean_w1",
+        "mfcc_std_w1",
+        "mfcc_min_w1",
+        "mfcc_max_w1",
+        "mfcc_q05_w1",
+        "mfcc_q25_w1",
+        "mfcc_q50_w1",
+        "mfcc_q75_w1",
+        "mfcc_q95_w1",
+        "mfcc_q99_w1",
+        "mfcc_kur_w1",
+        "sc_sum_w1",
+        "sc_mean_w1",
+        "sc_std_w1",
+        "sc_min_w1",
+        "sc_max_w1",
+        "sc_q25_w1",
+        "sc_q75_w1",
+        "sc_q95_w1",
+        "sc_kur_w1",
+        "sc_skew_w1",
+        "stft_sum_w1",
+        "stft_mean_w1",
+        "stft_std_w1",
+        "stft_min_w1",
+        "stft_q05_w1",
+        "stft_q75_w1",
+        "stft_q95_w1",
+        "stft_kur_w1",
+        "stft_skew_w1",
+        "length_w2",
+        "sum_w2",
+        "q50_w2",
+        "kur_w2",
+        "skew_w2",
+        "lag1_sum_w2",
+        "lag1_q50_w2",
+        "lag1_skew_w2",
+        "zc_sum_w2",
+        "zc_q95_w2",
+        "mfcc_min_w2",
+        "mfcc_max_w2",
+        "mfcc_q75_w2",
+        "mfcc_q95_w2",
+        "mfcc_kur_w2",
+        "mfcc_skew_w2",
+        "sc_sum_w2",
+        "sc_mean_w2",
+        "sc_std_w2",
+        "sc_min_w2",
+        "sc_max_w2",
+        "sc_q05_w2",
+        "sc_q25_w2",
+        "sc_q50_w2",
+        "sc_kur_w2",
+        "stft_sum_w2",
+        "stft_mean_w2",
+        "stft_std_w2",
+        "stft_min_w2",
+        "length_w3",
+        "sum_w3",
+        "q50_w3",
+        "kur_w3",
+        "skew_w3",
+        "lag1_sum_w3",
+        "lag1_q50_w3",
+        "lag1_kur_w3",
+        "lag1_skew_w3",
+        "zc_sum_w3",
+        "zc_q95_w3",
+        "mfcc_mean_w3",
+        "mfcc_max_w3",
+        "mfcc_q05_w3",
+        "mfcc_q95_w3",
+        "mfcc_q99_w3",
+        "mfcc_kur_w3",
+        "mfcc_skew_w3",
+        "sc_sum_w3",
+        "sc_mean_w3",
+        "sc_std_w3",
+        "sc_min_w3",
+        "sc_max_w3",
+        "sc_q25_w3",
+        "sc_kur_w3",
+        "stft_sum_w3",
+        "stft_mean_w3",
+        "stft_std_w3",
+        "stft_min_w3",
+        "length_w4",
+        "sum_w4",
+        "std_w4",
+        "q05_w4",
+        "q25_w4",
+        "q50_w4",
+        "q75_w4",
+        "kur_w4",
+        "skew_w4",
+        "lag1_sum_w4",
+        "lag1_q25_w4",
+        "lag1_kur_w4",
+        "lag1_skew_w4",
+        "zc_sum_w4",
+        "zc_q75_w4",
+        "zc_q95_w4",
+        "zc_q99_w4",
+        "zc_kur_w4",
+        "zc_skew_w4",
+        "mfcc_sum_w4",
+        "mfcc_mean_w4",
+        "mfcc_std_w4",
+        "mfcc_max_w4",
+        "mfcc_q05_w4",
+        "mfcc_q25_w4",
+        "mfcc_q50_w4",
+        "mfcc_q95_w4",
+        "mfcc_q99_w4",
+        "mfcc_kur_w4",
+        "mfcc_skew_w4",
+        "sc_sum_w4",
+        "sc_mean_w4",
+        "sc_std_w4",
+        "sc_min_w4",
+        "sc_max_w4",
+        "sc_q25_w4",
+        "sc_kur_w4",
+        "sc_skew_w4",
+        "stft_sum_w4",
+        "stft_mean_w4",
+        "stft_std_w4",
+        "stft_min_w4",
+        "stft_q95_w4",
+        "stft_kur_w4",
+        "stft_skew_w4"
+      ],
+      "actors": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "class_counts": {
+        "angry": 96,
+        "calm": 96,
+        "disgust": 48,
+        "fearful": 96,
+        "happy": 96,
+        "neutral": 48,
+        "sad": 96,
+        "surprised": 48
+      }
+    }
+  },
+  "class_order": [
+    "angry",
+    "calm",
+    "disgust",
+    "fearful",
+    "happy",
+    "neutral",
+    "sad",
+    "surprised"
+  ],
+  "validation": {
+    "selection_metric": "mean_accuracy",
+    "selected_method": "gradient_boosting_05",
+    "tie_break": "first method in configuration order",
+    "folds": [
+      {
+        "train_actors": [
+          3,
+          4,
+          5,
+          7,
+          8,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "validation_actors": [
+          1,
+          2,
+          6,
+          9
+        ]
+      },
+      {
+        "train_actors": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          15,
+          18
+        ],
+        "validation_actors": [
+          4,
+          14,
+          16,
+          17
+        ]
+      },
+      {
+        "train_actors": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "validation_actors": [
+          3,
+          10,
+          12,
+          18
+        ]
+      },
+      {
+        "train_actors": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "validation_actors": [
+          5,
+          8,
+          13
+        ]
+      },
+      {
+        "train_actors": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          16,
+          17,
+          18
+        ],
+        "validation_actors": [
+          7,
+          11,
+          15
+        ]
+      }
+    ],
+    "scores": {
+      "majority": {
+        "fold_scores": [
+          {
+            "accuracy": 0.15458937198067632,
+            "f1_macro": 0.03347280334728033
+          },
+          {
+            "accuracy": 0.15609756097560976,
+            "f1_macro": 0.03375527426160337
+          },
+          {
+            "accuracy": 0.15300546448087432,
+            "f1_macro": 0.03317535545023697
+          },
+          {
+            "accuracy": 0.15161290322580645,
+            "f1_macro": 0.032913165266106444
+          },
+          {
+            "accuracy": 0.1553398058252427,
+            "f1_macro": 0.03361344537815126
+          }
+        ],
+        "mean_accuracy": 0.15412902129764192,
+        "mean_f1_macro": 0.03338600874067567,
+        "std_f1_macro": 0.0003044908908204705
+      },
+      "gradient_boosting_01": {
+        "fold_scores": [
+          {
+            "accuracy": 0.45169082125603865,
+            "f1_macro": 0.4094810618528937
+          },
+          {
+            "accuracy": 0.4,
+            "f1_macro": 0.3937197647522802
+          },
+          {
+            "accuracy": 0.3442622950819672,
+            "f1_macro": 0.3317313037323872
+          },
+          {
+            "accuracy": 0.4,
+            "f1_macro": 0.3927041950774526
+          },
+          {
+            "accuracy": 0.4368932038834951,
+            "f1_macro": 0.3925805195369359
+          }
+        ],
+        "mean_accuracy": 0.4065692640443002,
+        "mean_f1_macro": 0.3840433689903899,
+        "std_f1_macro": 0.026926395498209837
+      },
+      "gradient_boosting_02": {
+        "fold_scores": [
+          {
+            "accuracy": 0.43478260869565216,
+            "f1_macro": 0.40975728760583463
+          },
+          {
+            "accuracy": 0.3975609756097561,
+            "f1_macro": 0.39559242317693694
+          },
+          {
+            "accuracy": 0.3360655737704918,
+            "f1_macro": 0.319824084879885
+          },
+          {
+            "accuracy": 0.35161290322580646,
+            "f1_macro": 0.33447266253931374
+          },
+          {
+            "accuracy": 0.4401294498381877,
+            "f1_macro": 0.41222263903654943
+          }
+        ],
+        "mean_accuracy": 0.39203030222797886,
+        "mean_f1_macro": 0.3743738194477039,
+        "std_f1_macro": 0.039249275079756875
+      },
+      "gradient_boosting_03": {
+        "fold_scores": [
+          {
+            "accuracy": 0.42995169082125606,
+            "f1_macro": 0.3863863374783959
+          },
+          {
+            "accuracy": 0.4097560975609756,
+            "f1_macro": 0.4024067727881141
+          },
+          {
+            "accuracy": 0.3524590163934426,
+            "f1_macro": 0.31253581052587887
+          },
+          {
+            "accuracy": 0.3580645161290323,
+            "f1_macro": 0.3406772281482312
+          },
+          {
+            "accuracy": 0.42718446601941745,
+            "f1_macro": 0.3826823845871723
+          }
+        ],
+        "mean_accuracy": 0.39548315738482487,
+        "mean_f1_macro": 0.3649377067055585,
+        "std_f1_macro": 0.033206559024708114
+      },
+      "gradient_boosting_04": {
+        "fold_scores": [
+          {
+            "accuracy": 0.41304347826086957,
+            "f1_macro": 0.383708589774332
+          },
+          {
+            "accuracy": 0.3439024390243902,
+            "f1_macro": 0.3284888891188655
+          },
+          {
+            "accuracy": 0.2896174863387978,
+            "f1_macro": 0.2611721394072884
+          },
+          {
+            "accuracy": 0.32903225806451614,
+            "f1_macro": 0.2976282529710367
+          },
+          {
+            "accuracy": 0.343042071197411,
+            "f1_macro": 0.3157466769176008
+          }
+        ],
+        "mean_accuracy": 0.34372754657719695,
+        "mean_f1_macro": 0.31734890963782464,
+        "std_f1_macro": 0.04018708064353798
+      },
+      "gradient_boosting_05": {
+        "fold_scores": [
+          {
+            "accuracy": 0.4613526570048309,
+            "f1_macro": 0.42408189758308573
+          },
+          {
+            "accuracy": 0.4,
+            "f1_macro": 0.3879363507963647
+          },
+          {
+            "accuracy": 0.34972677595628415,
+            "f1_macro": 0.3161402064710576
+          },
+          {
+            "accuracy": 0.4,
+            "f1_macro": 0.38099376674285523
+          },
+          {
+            "accuracy": 0.4336569579288026,
+            "f1_macro": 0.39668554851234406
+          }
+        ],
+        "mean_accuracy": 0.40894727817798354,
+        "mean_f1_macro": 0.38116755402114155,
+        "std_f1_macro": 0.03565628073028185
+      },
+      "gradient_boosting_06": {
+        "fold_scores": [
+          {
+            "accuracy": 0.4106280193236715,
+            "f1_macro": 0.3755623659420898
+          },
+          {
+            "accuracy": 0.4024390243902439,
+            "f1_macro": 0.39272489067977756
+          },
+          {
+            "accuracy": 0.3633879781420765,
+            "f1_macro": 0.3347483601146639
+          },
+          {
+            "accuracy": 0.3709677419354839,
+            "f1_macro": 0.36218420783203553
+          },
+          {
+            "accuracy": 0.4401294498381877,
+            "f1_macro": 0.39817738749625464
+          }
+        ],
+        "mean_accuracy": 0.3975104427259327,
+        "mean_f1_macro": 0.37267944241296436,
+        "std_f1_macro": 0.022843788656840277
+      },
+      "gradient_boosting_07": {
+        "fold_scores": [
+          {
+            "accuracy": 0.45169082125603865,
+            "f1_macro": 0.4185524314831299
+          },
+          {
+            "accuracy": 0.4121951219512195,
+            "f1_macro": 0.40819978474150265
+          },
+          {
+            "accuracy": 0.3524590163934426,
+            "f1_macro": 0.33116732083398764
+          },
+          {
+            "accuracy": 0.3709677419354839,
+            "f1_macro": 0.3441246252432682
+          },
+          {
+            "accuracy": 0.42718446601941745,
+            "f1_macro": 0.38341148059039215
+          }
+        ],
+        "mean_accuracy": 0.40289943351112034,
+        "mean_f1_macro": 0.37709112857845606,
+        "std_f1_macro": 0.03441662806341844
+      },
+      "gradient_boosting_08": {
+        "fold_scores": [
+          {
+            "accuracy": 0.43719806763285024,
+            "f1_macro": 0.4072418612267644
+          },
+          {
+            "accuracy": 0.4121951219512195,
+            "f1_macro": 0.4004413186535275
+          },
+          {
+            "accuracy": 0.36065573770491804,
+            "f1_macro": 0.34346295009487293
+          },
+          {
+            "accuracy": 0.35161290322580646,
+            "f1_macro": 0.3521442189047561
+          },
+          {
+            "accuracy": 0.4368932038834951,
+            "f1_macro": 0.400244161676954
+          }
+        ],
+        "mean_accuracy": 0.3997110068796579,
+        "mean_f1_macro": 0.38070690211137503,
+        "std_f1_macro": 0.027122664310928433
+      },
+      "gradient_boosting_09": {
+        "fold_scores": [
+          {
+            "accuracy": 0.4492753623188406,
+            "f1_macro": 0.4176355237388085
+          },
+          {
+            "accuracy": 0.4097560975609756,
+            "f1_macro": 0.40541444114100883
+          },
+          {
+            "accuracy": 0.3469945355191257,
+            "f1_macro": 0.3268192007777476
+          },
+          {
+            "accuracy": 0.38387096774193546,
+            "f1_macro": 0.36151292606671614
+          },
+          {
+            "accuracy": 0.42718446601941745,
+            "f1_macro": 0.3989119143436991
+          }
+        ],
+        "mean_accuracy": 0.4034162858320589,
+        "mean_f1_macro": 0.382058801213596,
+        "std_f1_macro": 0.033372932044081274
+      },
+      "gradient_boosting_10": {
+        "fold_scores": [
+          {
+            "accuracy": 0.3719806763285024,
+            "f1_macro": 0.3405836829024169
+          },
+          {
+            "accuracy": 0.3829268292682927,
+            "f1_macro": 0.36346275494501906
+          },
+          {
+            "accuracy": 0.2540983606557377,
+            "f1_macro": 0.22556648790648462
+          },
+          {
+            "accuracy": 0.3161290322580645,
+            "f1_macro": 0.289697768224171
+          },
+          {
+            "accuracy": 0.40129449838187703,
+            "f1_macro": 0.3636442314976186
+          }
+        ],
+        "mean_accuracy": 0.34528587937849486,
+        "mean_f1_macro": 0.31659098509514205,
+        "std_f1_macro": 0.052906189724946574
+      }
+    },
+    "candidate_parameters": {
+      "majority": {
+        "constant": null,
+        "random_state": null,
+        "strategy": "most_frequent"
+      },
+      "gradient_boosting_01": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(max_depth=7, min_samples_split=100, random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(max_depth=7, min_samples_split=100, random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.1,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 7,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 100,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_02": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=0.5, max_depth=5, min_samples_split=50,\n                           random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=0.5, max_depth=5, min_samples_split=50,\n                           random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.5,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 5,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 50,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_03": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=0.5, min_samples_split=10,\n                           random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=0.5, min_samples_split=10,\n                           random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.5,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 3,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 10,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_04": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=1, max_depth=5, min_samples_split=10,\n                           random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=1, max_depth=5, min_samples_split=10,\n                           random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 1,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 5,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 10,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_05": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(min_samples_split=10, random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(min_samples_split=10, random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.1,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 3,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 10,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_06": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=0.5, min_samples_split=100,\n                           random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=0.5, min_samples_split=100,\n                           random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.5,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 3,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 100,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_07": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=0.5, max_depth=7, min_samples_split=50,\n                           random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=0.5, max_depth=7, min_samples_split=50,\n                           random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.5,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 7,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 50,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_08": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=0.5, max_depth=7,\n                           min_samples_split=100, random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=0.5, max_depth=7,\n                           min_samples_split=100, random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.5,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 7,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 100,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_09": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=0.5, max_depth=5, min_samples_split=10,\n                           random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=0.5, max_depth=5, min_samples_split=10,\n                           random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 0.5,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 5,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 10,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      },
+      "gradient_boosting_10": {
+        "memory": null,
+        "steps": [
+          [
+            "scale",
+            "StandardScaler()"
+          ],
+          [
+            "classifier",
+            "GradientBoostingClassifier(learning_rate=1, max_depth=7, min_samples_split=10,\n                           random_state=0)"
+          ]
+        ],
+        "transform_input": null,
+        "verbose": false,
+        "scale": "StandardScaler()",
+        "classifier": "GradientBoostingClassifier(learning_rate=1, max_depth=7, min_samples_split=10,\n                           random_state=0)",
+        "scale__copy": true,
+        "scale__with_mean": true,
+        "scale__with_std": true,
+        "classifier__ccp_alpha": 0.0,
+        "classifier__criterion": "friedman_mse",
+        "classifier__init": null,
+        "classifier__learning_rate": 1,
+        "classifier__loss": "log_loss",
+        "classifier__max_depth": 7,
+        "classifier__max_features": null,
+        "classifier__max_leaf_nodes": null,
+        "classifier__min_impurity_decrease": 0.0,
+        "classifier__min_samples_leaf": 1,
+        "classifier__min_samples_split": 10,
+        "classifier__min_weight_fraction_leaf": 0.0,
+        "classifier__n_estimators": 100,
+        "classifier__n_iter_no_change": null,
+        "classifier__random_state": 0,
+        "classifier__subsample": 1.0,
+        "classifier__tol": 0.0001,
+        "classifier__validation_fraction": 0.1,
+        "classifier__verbose": 0,
+        "classifier__warm_start": false
+      }
+    },
+    "parallel_jobs": 3,
+    "search_space": {
+      "learning_rate": [
+        0.1,
+        0.5,
+        1
+      ],
+      "max_depth": [
+        3,
+        5,
+        7
+      ],
+      "min_samples_split": [
+        10,
+        50,
+        100
+      ]
+    },
+    "search_algorithm": "gradient_boosting",
+    "score_interpretation": "Training-fold scores used for model/parameter selection; not nested-CV estimates."
+  },
+  "metrics": {
+    "majority": {
+      "accuracy": 0.15384615384615385,
+      "f1_macro": 0.03333333333333333,
+      "classification_report": {
+        "angry": {
+          "precision": 0.15384615384615385,
+          "recall": 1.0,
+          "f1-score": 0.26666666666666666,
+          "support": 96.0
+        },
+        "calm": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "disgust": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 48.0
+        },
+        "fearful": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "happy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 48.0
+        },
+        "sad": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 96.0
+        },
+        "surprised": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 48.0
+        },
+        "accuracy": 0.15384615384615385,
+        "macro avg": {
+          "precision": 0.019230769230769232,
+          "recall": 0.125,
+          "f1-score": 0.03333333333333333,
+          "support": 624.0
+        },
+        "weighted avg": {
+          "precision": 0.02366863905325444,
+          "recall": 0.15384615384615385,
+          "f1-score": 0.041025641025641026,
+          "support": 624.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          96,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          96,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          48,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          96,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          96,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          48,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          96,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          48,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "gradient_boosting_05": {
+      "accuracy": 0.4599358974358974,
+      "f1_macro": 0.4520429520249779,
+      "classification_report": {
+        "angry": {
+          "precision": 0.4930555555555556,
+          "recall": 0.7395833333333334,
+          "f1-score": 0.5916666666666667,
+          "support": 96.0
+        },
+        "calm": {
+          "precision": 0.6086956521739131,
+          "recall": 0.5833333333333334,
+          "f1-score": 0.5957446808510638,
+          "support": 96.0
+        },
+        "disgust": {
+          "precision": 0.5714285714285714,
+          "recall": 0.4166666666666667,
+          "f1-score": 0.4819277108433735,
+          "support": 48.0
+        },
+        "fearful": {
+          "precision": 0.5535714285714286,
+          "recall": 0.3229166666666667,
+          "f1-score": 0.40789473684210525,
+          "support": 96.0
+        },
+        "happy": {
+          "precision": 0.3103448275862069,
+          "recall": 0.375,
+          "f1-score": 0.33962264150943394,
+          "support": 96.0
+        },
+        "neutral": {
+          "precision": 0.5333333333333333,
+          "recall": 0.3333333333333333,
+          "f1-score": 0.41025641025641024,
+          "support": 48.0
+        },
+        "sad": {
+          "precision": 0.36363636363636365,
+          "recall": 0.375,
+          "f1-score": 0.36923076923076925,
+          "support": 96.0
+        },
+        "surprised": {
+          "precision": 0.40384615384615385,
+          "recall": 0.4375,
+          "f1-score": 0.42,
+          "support": 48.0
+        },
+        "accuracy": 0.4599358974358974,
+        "macro avg": {
+          "precision": 0.4797389857664408,
+          "recall": 0.44791666666666663,
+          "f1-score": 0.4520429520249779,
+          "support": 624.0
+        },
+        "weighted avg": {
+          "precision": 0.47440120874269187,
+          "recall": 0.4599358974358974,
+          "f1-score": 0.4554233162538354,
+          "support": 624.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          71,
+          0,
+          1,
+          0,
+          11,
+          2,
+          2,
+          9
+        ],
+        [
+          1,
+          56,
+          1,
+          3,
+          13,
+          1,
+          20,
+          1
+        ],
+        [
+          14,
+          2,
+          20,
+          1,
+          4,
+          0,
+          3,
+          4
+        ],
+        [
+          20,
+          3,
+          2,
+          31,
+          25,
+          1,
+          8,
+          6
+        ],
+        [
+          24,
+          1,
+          1,
+          9,
+          36,
+          2,
+          14,
+          9
+        ],
+        [
+          2,
+          2,
+          0,
+          1,
+          13,
+          16,
+          13,
+          1
+        ],
+        [
+          5,
+          27,
+          9,
+          2,
+          10,
+          6,
+          36,
+          1
+        ],
+        [
+          7,
+          1,
+          1,
+          9,
+          4,
+          2,
+          3,
+          21
+        ]
+      ]
+    }
+  },
+  "warnings": [],
+  "model_parameters": {
+    "majority": {
+      "constant": null,
+      "random_state": null,
+      "strategy": "most_frequent"
+    },
+    "gradient_boosting_05": {
+      "memory": null,
+      "steps": [
+        [
+          "scale",
+          "StandardScaler()"
+        ],
+        [
+          "classifier",
+          "GradientBoostingClassifier(min_samples_split=10, random_state=0)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "scale": "StandardScaler()",
+      "classifier": "GradientBoostingClassifier(min_samples_split=10, random_state=0)",
+      "scale__copy": true,
+      "scale__with_mean": true,
+      "scale__with_std": true,
+      "classifier__ccp_alpha": 0.0,
+      "classifier__criterion": "friedman_mse",
+      "classifier__init": null,
+      "classifier__learning_rate": 0.1,
+      "classifier__loss": "log_loss",
+      "classifier__max_depth": 3,
+      "classifier__max_features": null,
+      "classifier__max_leaf_nodes": null,
+      "classifier__min_impurity_decrease": 0.0,
+      "classifier__min_samples_leaf": 1,
+      "classifier__min_samples_split": 10,
+      "classifier__min_weight_fraction_leaf": 0.0,
+      "classifier__n_estimators": 100,
+      "classifier__n_iter_no_change": null,
+      "classifier__random_state": 0,
+      "classifier__subsample": 1.0,
+      "classifier__tol": 0.0001,
+      "classifier__validation_fraction": 0.1,
+      "classifier__verbose": 0,
+      "classifier__warm_start": false
+    }
+  },
+  "feature_analysis": {
+    "majority": {
+      "active_features": [
+        "sum",
+        "std",
+        "q25",
+        "q50",
+        "q75",
+        "kur",
+        "skew",
+        "lag1_sum",
+        "lag1_q25",
+        "lag1_kur",
+        "lag1_skew",
+        "zc_sum",
+        "zc_mean",
+        "zc_q95",
+        "mfcc_sum",
+        "mfcc_mean",
+        "mfcc_std",
+        "mfcc_max",
+        "mfcc_q05",
+        "mfcc_q25",
+        "mfcc_q50",
+        "mfcc_q75",
+        "mfcc_q95",
+        "mfcc_q99",
+        "mfcc_kur",
+        "mfcc_skew",
+        "sc_sum",
+        "sc_mean",
+        "sc_std",
+        "sc_min",
+        "sc_max",
+        "sc_q01",
+        "sc_q05",
+        "sc_q25",
+        "sc_q50",
+        "sc_q75",
+        "sc_q95",
+        "sc_q99",
+        "sc_kur",
+        "sc_skew",
+        "stft_sum",
+        "stft_mean",
+        "stft_std",
+        "stft_min",
+        "stft_q01",
+        "stft_kur",
+        "length_w1",
+        "sum_w1",
+        "std_w1",
+        "q05_w1",
+        "q25_w1",
+        "q50_w1",
+        "kur_w1",
+        "skew_w1",
+        "lag1_sum_w1",
+        "lag1_q05_w1",
+        "lag1_q25_w1",
+        "lag1_kur_w1",
+        "lag1_skew_w1",
+        "zc_sum_w1",
+        "zc_q95_w1",
+        "zc_q99_w1",
+        "zc_kur_w1",
+        "mfcc_sum_w1",
+        "mfcc_mean_w1",
+        "mfcc_std_w1",
+        "mfcc_min_w1",
+        "mfcc_max_w1",
+        "mfcc_q05_w1",
+        "mfcc_q25_w1",
+        "mfcc_q50_w1",
+        "mfcc_q75_w1",
+        "mfcc_q95_w1",
+        "mfcc_q99_w1",
+        "mfcc_kur_w1",
+        "sc_sum_w1",
+        "sc_mean_w1",
+        "sc_std_w1",
+        "sc_min_w1",
+        "sc_max_w1",
+        "sc_q25_w1",
+        "sc_q75_w1",
+        "sc_q95_w1",
+        "sc_kur_w1",
+        "sc_skew_w1",
+        "stft_sum_w1",
+        "stft_mean_w1",
+        "stft_std_w1",
+        "stft_min_w1",
+        "stft_q05_w1",
+        "stft_q75_w1",
+        "stft_q95_w1",
+        "stft_kur_w1",
+        "stft_skew_w1",
+        "length_w2",
+        "sum_w2",
+        "q50_w2",
+        "kur_w2",
+        "skew_w2",
+        "lag1_sum_w2",
+        "lag1_q50_w2",
+        "lag1_skew_w2",
+        "zc_sum_w2",
+        "zc_q95_w2",
+        "mfcc_min_w2",
+        "mfcc_max_w2",
+        "mfcc_q75_w2",
+        "mfcc_q95_w2",
+        "mfcc_kur_w2",
+        "mfcc_skew_w2",
+        "sc_sum_w2",
+        "sc_mean_w2",
+        "sc_std_w2",
+        "sc_min_w2",
+        "sc_max_w2",
+        "sc_q05_w2",
+        "sc_q25_w2",
+        "sc_q50_w2",
+        "sc_kur_w2",
+        "stft_sum_w2",
+        "stft_mean_w2",
+        "stft_std_w2",
+        "stft_min_w2",
+        "length_w3",
+        "sum_w3",
+        "q50_w3",
+        "kur_w3",
+        "skew_w3",
+        "lag1_sum_w3",
+        "lag1_q50_w3",
+        "lag1_kur_w3",
+        "lag1_skew_w3",
+        "zc_sum_w3",
+        "zc_q95_w3",
+        "mfcc_mean_w3",
+        "mfcc_max_w3",
+        "mfcc_q05_w3",
+        "mfcc_q95_w3",
+        "mfcc_q99_w3",
+        "mfcc_kur_w3",
+        "mfcc_skew_w3",
+        "sc_sum_w3",
+        "sc_mean_w3",
+        "sc_std_w3",
+        "sc_min_w3",
+        "sc_max_w3",
+        "sc_q25_w3",
+        "sc_kur_w3",
+        "stft_sum_w3",
+        "stft_mean_w3",
+        "stft_std_w3",
+        "stft_min_w3",
+        "length_w4",
+        "sum_w4",
+        "std_w4",
+        "q05_w4",
+        "q25_w4",
+        "q50_w4",
+        "q75_w4",
+        "kur_w4",
+        "skew_w4",
+        "lag1_sum_w4",
+        "lag1_q25_w4",
+        "lag1_kur_w4",
+        "lag1_skew_w4",
+        "zc_sum_w4",
+        "zc_q75_w4",
+        "zc_q95_w4",
+        "zc_q99_w4",
+        "zc_kur_w4",
+        "zc_skew_w4",
+        "mfcc_sum_w4",
+        "mfcc_mean_w4",
+        "mfcc_std_w4",
+        "mfcc_max_w4",
+        "mfcc_q05_w4",
+        "mfcc_q25_w4",
+        "mfcc_q50_w4",
+        "mfcc_q95_w4",
+        "mfcc_q99_w4",
+        "mfcc_kur_w4",
+        "mfcc_skew_w4",
+        "sc_sum_w4",
+        "sc_mean_w4",
+        "sc_std_w4",
+        "sc_min_w4",
+        "sc_max_w4",
+        "sc_q25_w4",
+        "sc_kur_w4",
+        "sc_skew_w4",
+        "stft_sum_w4",
+        "stft_mean_w4",
+        "stft_std_w4",
+        "stft_min_w4",
+        "stft_q95_w4",
+        "stft_kur_w4",
+        "stft_skew_w4"
+      ]
+    },
+    "gradient_boosting_05": {
+      "active_features": [
+        "sum",
+        "std",
+        "q25",
+        "q50",
+        "q75",
+        "kur",
+        "skew",
+        "lag1_sum",
+        "lag1_q25",
+        "lag1_kur",
+        "lag1_skew",
+        "zc_sum",
+        "zc_mean",
+        "zc_q95",
+        "mfcc_sum",
+        "mfcc_mean",
+        "mfcc_std",
+        "mfcc_max",
+        "mfcc_q05",
+        "mfcc_q25",
+        "mfcc_q50",
+        "mfcc_q75",
+        "mfcc_q95",
+        "mfcc_q99",
+        "mfcc_kur",
+        "mfcc_skew",
+        "sc_sum",
+        "sc_mean",
+        "sc_std",
+        "sc_min",
+        "sc_max",
+        "sc_q01",
+        "sc_q05",
+        "sc_q25",
+        "sc_q50",
+        "sc_q75",
+        "sc_q95",
+        "sc_q99",
+        "sc_kur",
+        "sc_skew",
+        "stft_sum",
+        "stft_mean",
+        "stft_std",
+        "stft_min",
+        "stft_q01",
+        "stft_kur",
+        "length_w1",
+        "sum_w1",
+        "std_w1",
+        "q05_w1",
+        "q25_w1",
+        "q50_w1",
+        "kur_w1",
+        "skew_w1",
+        "lag1_sum_w1",
+        "lag1_q05_w1",
+        "lag1_q25_w1",
+        "lag1_kur_w1",
+        "lag1_skew_w1",
+        "zc_sum_w1",
+        "zc_q95_w1",
+        "zc_q99_w1",
+        "zc_kur_w1",
+        "mfcc_sum_w1",
+        "mfcc_mean_w1",
+        "mfcc_std_w1",
+        "mfcc_min_w1",
+        "mfcc_max_w1",
+        "mfcc_q05_w1",
+        "mfcc_q25_w1",
+        "mfcc_q50_w1",
+        "mfcc_q75_w1",
+        "mfcc_q95_w1",
+        "mfcc_q99_w1",
+        "mfcc_kur_w1",
+        "sc_sum_w1",
+        "sc_mean_w1",
+        "sc_std_w1",
+        "sc_min_w1",
+        "sc_max_w1",
+        "sc_q25_w1",
+        "sc_q75_w1",
+        "sc_q95_w1",
+        "sc_kur_w1",
+        "sc_skew_w1",
+        "stft_sum_w1",
+        "stft_mean_w1",
+        "stft_std_w1",
+        "stft_min_w1",
+        "stft_q05_w1",
+        "stft_q75_w1",
+        "stft_q95_w1",
+        "stft_kur_w1",
+        "stft_skew_w1",
+        "length_w2",
+        "sum_w2",
+        "q50_w2",
+        "kur_w2",
+        "skew_w2",
+        "lag1_sum_w2",
+        "lag1_q50_w2",
+        "lag1_skew_w2",
+        "zc_sum_w2",
+        "zc_q95_w2",
+        "mfcc_min_w2",
+        "mfcc_max_w2",
+        "mfcc_q75_w2",
+        "mfcc_q95_w2",
+        "mfcc_kur_w2",
+        "mfcc_skew_w2",
+        "sc_sum_w2",
+        "sc_mean_w2",
+        "sc_std_w2",
+        "sc_min_w2",
+        "sc_max_w2",
+        "sc_q05_w2",
+        "sc_q25_w2",
+        "sc_q50_w2",
+        "sc_kur_w2",
+        "stft_sum_w2",
+        "stft_mean_w2",
+        "stft_std_w2",
+        "stft_min_w2",
+        "length_w3",
+        "sum_w3",
+        "q50_w3",
+        "kur_w3",
+        "skew_w3",
+        "lag1_sum_w3",
+        "lag1_q50_w3",
+        "lag1_kur_w3",
+        "lag1_skew_w3",
+        "zc_sum_w3",
+        "zc_q95_w3",
+        "mfcc_mean_w3",
+        "mfcc_max_w3",
+        "mfcc_q05_w3",
+        "mfcc_q95_w3",
+        "mfcc_q99_w3",
+        "mfcc_kur_w3",
+        "mfcc_skew_w3",
+        "sc_sum_w3",
+        "sc_mean_w3",
+        "sc_std_w3",
+        "sc_min_w3",
+        "sc_max_w3",
+        "sc_q25_w3",
+        "sc_kur_w3",
+        "stft_sum_w3",
+        "stft_mean_w3",
+        "stft_std_w3",
+        "stft_min_w3",
+        "length_w4",
+        "sum_w4",
+        "std_w4",
+        "q05_w4",
+        "q25_w4",
+        "q50_w4",
+        "q75_w4",
+        "kur_w4",
+        "skew_w4",
+        "lag1_sum_w4",
+        "lag1_q25_w4",
+        "lag1_kur_w4",
+        "lag1_skew_w4",
+        "zc_sum_w4",
+        "zc_q75_w4",
+        "zc_q95_w4",
+        "zc_q99_w4",
+        "zc_kur_w4",
+        "zc_skew_w4",
+        "mfcc_sum_w4",
+        "mfcc_mean_w4",
+        "mfcc_std_w4",
+        "mfcc_max_w4",
+        "mfcc_q05_w4",
+        "mfcc_q25_w4",
+        "mfcc_q50_w4",
+        "mfcc_q95_w4",
+        "mfcc_q99_w4",
+        "mfcc_kur_w4",
+        "mfcc_skew_w4",
+        "sc_sum_w4",
+        "sc_mean_w4",
+        "sc_std_w4",
+        "sc_min_w4",
+        "sc_max_w4",
+        "sc_q25_w4",
+        "sc_kur_w4",
+        "sc_skew_w4",
+        "stft_sum_w4",
+        "stft_mean_w4",
+        "stft_std_w4",
+        "stft_min_w4",
+        "stft_q95_w4",
+        "stft_kur_w4",
+        "stft_skew_w4"
+      ],
+      "feature_importances": [
+        {
+          "feature": "std",
+          "importance": 0.05925711709104618
+        },
+        {
+          "feature": "mfcc_kur",
+          "importance": 0.04354382784796384
+        },
+        {
+          "feature": "lag1_skew_w3",
+          "importance": 0.02700544898057874
+        },
+        {
+          "feature": "mfcc_kur_w2",
+          "importance": 0.026427101234738463
+        },
+        {
+          "feature": "mfcc_sum",
+          "importance": 0.02243024211449596
+        },
+        {
+          "feature": "mfcc_q95",
+          "importance": 0.019792915214919795
+        },
+        {
+          "feature": "stft_sum_w4",
+          "importance": 0.01943557219191045
+        },
+        {
+          "feature": "kur_w3",
+          "importance": 0.018397040845935502
+        },
+        {
+          "feature": "mfcc_skew_w3",
+          "importance": 0.018359683839044905
+        },
+        {
+          "feature": "mfcc_mean_w3",
+          "importance": 0.016660688442232223
+        },
+        {
+          "feature": "mfcc_std",
+          "importance": 0.015841735660502218
+        },
+        {
+          "feature": "lag1_kur_w4",
+          "importance": 0.015627697864664183
+        },
+        {
+          "feature": "stft_sum_w2",
+          "importance": 0.015551849645785702
+        },
+        {
+          "feature": "stft_sum_w3",
+          "importance": 0.014924372760237031
+        },
+        {
+          "feature": "mfcc_max_w4",
+          "importance": 0.013326580941080203
+        },
+        {
+          "feature": "mfcc_kur_w3",
+          "importance": 0.012042887635807147
+        },
+        {
+          "feature": "stft_std_w3",
+          "importance": 0.011582870551863526
+        },
+        {
+          "feature": "mfcc_kur_w4",
+          "importance": 0.011151767729126159
+        },
+        {
+          "feature": "mfcc_q95_w3",
+          "importance": 0.010876718020234679
+        },
+        {
+          "feature": "sc_sum_w2",
+          "importance": 0.010457608781514763
+        },
+        {
+          "feature": "mfcc_q95_w2",
+          "importance": 0.010388971846300455
+        },
+        {
+          "feature": "mfcc_kur_w1",
+          "importance": 0.010286533843862383
+        },
+        {
+          "feature": "sc_std_w3",
+          "importance": 0.010097769858584746
+        },
+        {
+          "feature": "length_w2",
+          "importance": 0.009343169051113532
+        },
+        {
+          "feature": "mfcc_q99_w4",
+          "importance": 0.009265543701072718
+        },
+        {
+          "feature": "mfcc_q05_w3",
+          "importance": 0.009249254722906617
+        },
+        {
+          "feature": "stft_min",
+          "importance": 0.009171076258279396
+        },
+        {
+          "feature": "sc_q50",
+          "importance": 0.009124434640924935
+        },
+        {
+          "feature": "stft_std_w2",
+          "importance": 0.008955058502226325
+        },
+        {
+          "feature": "sc_q05_w2",
+          "importance": 0.008390910916199572
+        },
+        {
+          "feature": "lag1_kur",
+          "importance": 0.008260954104371294
+        },
+        {
+          "feature": "kur",
+          "importance": 0.008033949944326409
+        },
+        {
+          "feature": "mfcc_q05",
+          "importance": 0.007909488445070908
+        },
+        {
+          "feature": "mfcc_mean",
+          "importance": 0.007808089060570793
+        },
+        {
+          "feature": "stft_mean_w3",
+          "importance": 0.007800727600911194
+        },
+        {
+          "feature": "lag1_skew_w4",
+          "importance": 0.007658285824732373
+        },
+        {
+          "feature": "mfcc_q05_w4",
+          "importance": 0.007606870818618483
+        },
+        {
+          "feature": "sc_kur",
+          "importance": 0.0074498290346601175
+        },
+        {
+          "feature": "skew_w2",
+          "importance": 0.006947964983380261
+        },
+        {
+          "feature": "mfcc_skew_w2",
+          "importance": 0.006861469071429624
+        },
+        {
+          "feature": "kur_w2",
+          "importance": 0.006860501532981956
+        },
+        {
+          "feature": "skew",
+          "importance": 0.006827488078595355
+        },
+        {
+          "feature": "mfcc_q75_w2",
+          "importance": 0.006751462043052664
+        },
+        {
+          "feature": "mfcc_q99_w3",
+          "importance": 0.0067475328624442815
+        },
+        {
+          "feature": "stft_mean_w2",
+          "importance": 0.006723151435430233
+        },
+        {
+          "feature": "sc_std_w4",
+          "importance": 0.006546286127451653
+        },
+        {
+          "feature": "lag1_skew",
+          "importance": 0.00653427151460775
+        },
+        {
+          "feature": "sc_sum_w4",
+          "importance": 0.006493637486930929
+        },
+        {
+          "feature": "sc_sum",
+          "importance": 0.0064120102850816945
+        },
+        {
+          "feature": "sc_q50_w2",
+          "importance": 0.006198851373068261
+        },
+        {
+          "feature": "mfcc_sum_w1",
+          "importance": 0.006148921447049956
+        },
+        {
+          "feature": "mfcc_q99",
+          "importance": 0.006009270766395528
+        },
+        {
+          "feature": "mfcc_skew",
+          "importance": 0.0059026042167834155
+        },
+        {
+          "feature": "stft_min_w3",
+          "importance": 0.005829089076404808
+        },
+        {
+          "feature": "sc_min_w4",
+          "importance": 0.005727216069176511
+        },
+        {
+          "feature": "lag1_kur_w1",
+          "importance": 0.0057043244204292905
+        },
+        {
+          "feature": "sc_kur_w3",
+          "importance": 0.005700827018609482
+        },
+        {
+          "feature": "sc_mean_w3",
+          "importance": 0.005665685279865921
+        },
+        {
+          "feature": "mfcc_max",
+          "importance": 0.005625482582992447
+        },
+        {
+          "feature": "kur_w4",
+          "importance": 0.005623630141743541
+        },
+        {
+          "feature": "sc_kur_w2",
+          "importance": 0.005594788108753344
+        },
+        {
+          "feature": "sc_skew_w4",
+          "importance": 0.005392728332130777
+        },
+        {
+          "feature": "mfcc_q75",
+          "importance": 0.005392240229352207
+        },
+        {
+          "feature": "mfcc_max_w2",
+          "importance": 0.005277679095949805
+        },
+        {
+          "feature": "lag1_kur_w3",
+          "importance": 0.005247337019070497
+        },
+        {
+          "feature": "mfcc_sum_w4",
+          "importance": 0.005134052717025961
+        },
+        {
+          "feature": "skew_w4",
+          "importance": 0.004850314257615595
+        },
+        {
+          "feature": "lag1_sum_w3",
+          "importance": 0.004752897087777224
+        },
+        {
+          "feature": "mfcc_q05_w1",
+          "importance": 0.0046868800648711345
+        },
+        {
+          "feature": "zc_sum_w3",
+          "importance": 0.004683282129601396
+        },
+        {
+          "feature": "lag1_skew_w1",
+          "importance": 0.00464285890223421
+        },
+        {
+          "feature": "q50_w3",
+          "importance": 0.004594882941821588
+        },
+        {
+          "feature": "mfcc_q99_w1",
+          "importance": 0.004591679777390055
+        },
+        {
+          "feature": "mfcc_max_w3",
+          "importance": 0.004536782473271994
+        },
+        {
+          "feature": "mfcc_q95_w4",
+          "importance": 0.004498599879330616
+        },
+        {
+          "feature": "skew_w3",
+          "importance": 0.004455956686105208
+        },
+        {
+          "feature": "sum_w2",
+          "importance": 0.004444138246209929
+        },
+        {
+          "feature": "sc_skew",
+          "importance": 0.004406570919332434
+        },
+        {
+          "feature": "stft_sum",
+          "importance": 0.00431591869354712
+        },
+        {
+          "feature": "sc_max_w4",
+          "importance": 0.004168893522764646
+        },
+        {
+          "feature": "skew_w1",
+          "importance": 0.004168338140672775
+        },
+        {
+          "feature": "mfcc_q25_w4",
+          "importance": 0.004111323044926169
+        },
+        {
+          "feature": "zc_sum_w2",
+          "importance": 0.004072898081921578
+        },
+        {
+          "feature": "sc_q25",
+          "importance": 0.003968856786907748
+        },
+        {
+          "feature": "sc_sum_w3",
+          "importance": 0.003961037315853328
+        },
+        {
+          "feature": "mfcc_min_w2",
+          "importance": 0.00391043169860132
+        },
+        {
+          "feature": "kur_w1",
+          "importance": 0.00390451994112366
+        },
+        {
+          "feature": "sc_min_w3",
+          "importance": 0.0038484375173794827
+        },
+        {
+          "feature": "sc_q01",
+          "importance": 0.00381892622624363
+        },
+        {
+          "feature": "sc_max_w3",
+          "importance": 0.0037856567974105587
+        },
+        {
+          "feature": "sc_min_w2",
+          "importance": 0.0037804056911884217
+        },
+        {
+          "feature": "length_w3",
+          "importance": 0.003750642593909153
+        },
+        {
+          "feature": "mfcc_q75_w1",
+          "importance": 0.003624195770617109
+        },
+        {
+          "feature": "mfcc_max_w1",
+          "importance": 0.003588985278332401
+        },
+        {
+          "feature": "stft_kur",
+          "importance": 0.003570215815122378
+        },
+        {
+          "feature": "stft_sum_w1",
+          "importance": 0.0035570660669763717
+        },
+        {
+          "feature": "sc_q95_w1",
+          "importance": 0.003534191256593419
+        },
+        {
+          "feature": "sc_kur_w4",
+          "importance": 0.003516245858895422
+        },
+        {
+          "feature": "mfcc_q50_w1",
+          "importance": 0.0033556875506771185
+        },
+        {
+          "feature": "std_w1",
+          "importance": 0.0032059815702964517
+        },
+        {
+          "feature": "length_w4",
+          "importance": 0.003201498342539504
+        },
+        {
+          "feature": "sc_q25_w4",
+          "importance": 0.0031810800875824797
+        },
+        {
+          "feature": "stft_std_w4",
+          "importance": 0.0030839352362649506
+        },
+        {
+          "feature": "std_w4",
+          "importance": 0.003074391030657171
+        },
+        {
+          "feature": "stft_skew_w4",
+          "importance": 0.0029914221372922783
+        },
+        {
+          "feature": "sc_skew_w1",
+          "importance": 0.0029844302298799863
+        },
+        {
+          "feature": "lag1_sum_w4",
+          "importance": 0.0029716294922000033
+        },
+        {
+          "feature": "stft_q01",
+          "importance": 0.002908431181346019
+        },
+        {
+          "feature": "mfcc_skew_w4",
+          "importance": 0.0027597221517613206
+        },
+        {
+          "feature": "stft_std",
+          "importance": 0.0027499520719671392
+        },
+        {
+          "feature": "stft_min_w4",
+          "importance": 0.002727395380006538
+        },
+        {
+          "feature": "stft_kur_w4",
+          "importance": 0.002711957632290453
+        },
+        {
+          "feature": "sc_q25_w3",
+          "importance": 0.0026341535383558267
+        },
+        {
+          "feature": "stft_min_w2",
+          "importance": 0.0026170364430744618
+        },
+        {
+          "feature": "zc_sum",
+          "importance": 0.0025042895129232037
+        },
+        {
+          "feature": "zc_mean",
+          "importance": 0.0024543743847463707
+        },
+        {
+          "feature": "sum_w4",
+          "importance": 0.0024028486645858668
+        },
+        {
+          "feature": "zc_kur_w1",
+          "importance": 0.0024022315539771826
+        },
+        {
+          "feature": "mfcc_q25_w1",
+          "importance": 0.0023914000343065018
+        },
+        {
+          "feature": "sc_max_w2",
+          "importance": 0.002360245675617909
+        },
+        {
+          "feature": "zc_kur_w4",
+          "importance": 0.002292690232003847
+        },
+        {
+          "feature": "zc_sum_w4",
+          "importance": 0.002274441465097593
+        },
+        {
+          "feature": "length_w1",
+          "importance": 0.0022159274378854813
+        },
+        {
+          "feature": "sc_max_w1",
+          "importance": 0.002164045631558935
+        },
+        {
+          "feature": "q05_w4",
+          "importance": 0.0020728586028420657
+        },
+        {
+          "feature": "q25",
+          "importance": 0.002036571173732246
+        },
+        {
+          "feature": "mfcc_std_w4",
+          "importance": 0.0019930741326903765
+        },
+        {
+          "feature": "sc_q95",
+          "importance": 0.001975778336446576
+        },
+        {
+          "feature": "sc_mean_w4",
+          "importance": 0.001886700825772241
+        },
+        {
+          "feature": "sum_w1",
+          "importance": 0.0018400783666733317
+        },
+        {
+          "feature": "mfcc_q95_w1",
+          "importance": 0.0017749122513002875
+        },
+        {
+          "feature": "sc_q25_w2",
+          "importance": 0.0017675111028704867
+        },
+        {
+          "feature": "sum_w3",
+          "importance": 0.001699866636541205
+        },
+        {
+          "feature": "lag1_sum",
+          "importance": 0.001656542904591649
+        },
+        {
+          "feature": "lag1_q25",
+          "importance": 0.0016197488444322265
+        },
+        {
+          "feature": "sc_mean_w2",
+          "importance": 0.0016149013804224728
+        },
+        {
+          "feature": "stft_skew_w1",
+          "importance": 0.0016085102927935581
+        },
+        {
+          "feature": "sc_min_w1",
+          "importance": 0.0016043181448333434
+        },
+        {
+          "feature": "stft_mean_w4",
+          "importance": 0.0015580999870832503
+        },
+        {
+          "feature": "sum",
+          "importance": 0.0014881975941342198
+        },
+        {
+          "feature": "sc_std_w1",
+          "importance": 0.001472205419487854
+        },
+        {
+          "feature": "lag1_q50_w3",
+          "importance": 0.0014630310539298138
+        },
+        {
+          "feature": "lag1_skew_w2",
+          "importance": 0.0014313530317520114
+        },
+        {
+          "feature": "mfcc_mean_w1",
+          "importance": 0.0014186628137723577
+        },
+        {
+          "feature": "q50_w2",
+          "importance": 0.0014162359485820589
+        },
+        {
+          "feature": "sc_std_w2",
+          "importance": 0.0014136466845833897
+        },
+        {
+          "feature": "sc_max",
+          "importance": 0.0013930930527383202
+        },
+        {
+          "feature": "mfcc_q50",
+          "importance": 0.0013765758815311834
+        },
+        {
+          "feature": "mfcc_min_w1",
+          "importance": 0.0013528978570117114
+        },
+        {
+          "feature": "stft_kur_w1",
+          "importance": 0.001343190641449185
+        },
+        {
+          "feature": "sc_mean",
+          "importance": 0.0013389613608218
+        },
+        {
+          "feature": "sc_q99",
+          "importance": 0.0013174311933029051
+        },
+        {
+          "feature": "lag1_sum_w2",
+          "importance": 0.0012617235748992605
+        },
+        {
+          "feature": "stft_q05_w1",
+          "importance": 0.0012499610387390265
+        },
+        {
+          "feature": "mfcc_mean_w4",
+          "importance": 0.0012466305214068557
+        },
+        {
+          "feature": "sc_kur_w1",
+          "importance": 0.0012044116282313446
+        },
+        {
+          "feature": "q75_w4",
+          "importance": 0.0011924237581587263
+        },
+        {
+          "feature": "q75",
+          "importance": 0.001186961219127758
+        },
+        {
+          "feature": "stft_std_w1",
+          "importance": 0.0011781551411931164
+        },
+        {
+          "feature": "q50",
+          "importance": 0.0010806627109712162
+        },
+        {
+          "feature": "stft_min_w1",
+          "importance": 0.0010397766313944362
+        },
+        {
+          "feature": "mfcc_q25",
+          "importance": 0.0010167864826360338
+        },
+        {
+          "feature": "mfcc_q50_w4",
+          "importance": 0.0010110828244336535
+        },
+        {
+          "feature": "sc_q75",
+          "importance": 0.0009498569358908811
+        },
+        {
+          "feature": "stft_mean_w1",
+          "importance": 0.0008620421914675439
+        },
+        {
+          "feature": "sc_std",
+          "importance": 0.0008296239514499026
+        },
+        {
+          "feature": "sc_mean_w1",
+          "importance": 0.0007647186917090253
+        },
+        {
+          "feature": "zc_sum_w1",
+          "importance": 0.0007031897849496903
+        },
+        {
+          "feature": "zc_skew_w4",
+          "importance": 0.0006995606156499461
+        },
+        {
+          "feature": "stft_mean",
+          "importance": 0.0006936727601543393
+        },
+        {
+          "feature": "q05_w1",
+          "importance": 0.0006281571911964677
+        },
+        {
+          "feature": "sc_q05",
+          "importance": 0.0006092538290513282
+        },
+        {
+          "feature": "lag1_sum_w1",
+          "importance": 0.0005879651480072965
+        },
+        {
+          "feature": "lag1_q05_w1",
+          "importance": 0.0004853873329351283
+        },
+        {
+          "feature": "q25_w1",
+          "importance": 0.00048073783069542663
+        },
+        {
+          "feature": "sc_q25_w1",
+          "importance": 0.0003868180178751988
+        },
+        {
+          "feature": "stft_q75_w1",
+          "importance": 0.0003272995615682066
+        },
+        {
+          "feature": "sc_sum_w1",
+          "importance": 0.0003144762970166069
+        },
+        {
+          "feature": "sc_q75_w1",
+          "importance": 0.0002907673430670812
+        },
+        {
+          "feature": "mfcc_std_w1",
+          "importance": 0.00020054184969974849
+        },
+        {
+          "feature": "sc_min",
+          "importance": 0.0001586539151757263
+        },
+        {
+          "feature": "lag1_q50_w2",
+          "importance": 0.00015409648301860813
+        },
+        {
+          "feature": "q25_w4",
+          "importance": 0.00011825970602172918
+        },
+        {
+          "feature": "lag1_q25_w4",
+          "importance": 5.301249804193713e-05
+        },
+        {
+          "feature": "zc_q95",
+          "importance": 0.0
+        },
+        {
+          "feature": "q50_w1",
+          "importance": 0.0
+        },
+        {
+          "feature": "lag1_q25_w1",
+          "importance": 0.0
+        },
+        {
+          "feature": "zc_q95_w1",
+          "importance": 0.0
+        },
+        {
+          "feature": "zc_q99_w1",
+          "importance": 0.0
+        },
+        {
+          "feature": "stft_q95_w1",
+          "importance": 0.0
+        },
+        {
+          "feature": "zc_q95_w2",
+          "importance": 0.0
+        },
+        {
+          "feature": "zc_q95_w3",
+          "importance": 0.0
+        },
+        {
+          "feature": "q50_w4",
+          "importance": 0.0
+        },
+        {
+          "feature": "zc_q75_w4",
+          "importance": 0.0
+        },
+        {
+          "feature": "zc_q95_w4",
+          "importance": 0.0
+        },
+        {
+          "feature": "zc_q99_w4",
+          "importance": 0.0
+        },
+        {
+          "feature": "stft_q95_w4",
+          "importance": 0.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Runtime dependency snapshot validated on Python 3.14.7 / Linux x86_64.
+# Version pins, not a wheel hash lock; other platforms/Python versions are unverified.
+numpy==2.4.2
+scipy==1.17.1
+scikit-learn==1.8.0
+joblib==1.5.3
+threadpoolctl==3.6.0

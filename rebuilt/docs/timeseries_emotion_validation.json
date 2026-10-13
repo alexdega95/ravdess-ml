@@ -1,0 +1,10 @@
+{
+  "run": "timeseries-emotion-euclidean-001",
+  "predictions_verified": 624,
+  "target": "emotion",
+  "selected_method": "euclidean",
+  "actor_isolation_verified": true,
+  "notebook_style_scaling_exact": true,
+  "independent_euclidean_predictions_exact": true,
+  "current_source_matches": true
+}

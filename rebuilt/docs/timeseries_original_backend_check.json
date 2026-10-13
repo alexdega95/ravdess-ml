@@ -1,0 +1,36 @@
+{
+  "emotion": {
+    "notebook_style_scaling_exact": true,
+    "pyts_accuracy": 0.1282051282051282,
+    "pyts_f1_macro": 0.09196175234872359,
+    "predictions_identical_to_prior_rebuilt_run": true,
+    "different_predictions": 0,
+    "pyts_parameters": {
+      "algorithm": "auto",
+      "leaf_size": 30,
+      "metric": "euclidean",
+      "metric_params": null,
+      "n_jobs": 1,
+      "n_neighbors": 1,
+      "p": 2,
+      "weights": "uniform"
+    }
+  },
+  "vocal": {
+    "notebook_style_scaling_exact": true,
+    "pyts_accuracy": 0.5817307692307693,
+    "pyts_f1_macro": 0.3782084321204,
+    "predictions_identical_to_prior_rebuilt_run": true,
+    "different_predictions": 0,
+    "pyts_parameters": {
+      "algorithm": "auto",
+      "leaf_size": 30,
+      "metric": "euclidean",
+      "metric_params": null,
+      "n_jobs": 1,
+      "n_neighbors": 1,
+      "p": 2,
+      "weights": "uniform"
+    }
+  }
+}

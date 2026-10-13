@@ -1,0 +1,44 @@
+name: Python checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: rebuilt/requirements.lock.txt
+      - name: Install recorded core dependencies
+        run: |
+          python -m pip install -r rebuilt/requirements.lock.txt
+          python -m pip install --no-deps -e ./rebuilt
+      - name: Run fixture tests
+        env:
+          OMP_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -m unittest discover -s rebuilt/tests -v
+      - name: Check saved-result summaries
+        run: python rebuilt/scripts/summarize_results.py --check
+      - name: Check package imports and CLI
+        run: python -m ravdess_project --help
+      - name: Reject large tracked files
+        run: |
+          python - <<'PY'
+          import subprocess
+          from pathlib import Path
+          names = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          oversized = [name for name in names if name and Path(name).stat().st_size > 5_000_000]
+          if oversized:
+              raise SystemExit('Tracked files exceed 5 MB: ' + ', '.join(oversized))
+          PY

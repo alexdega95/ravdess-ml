@@ -1,0 +1,388 @@
+{
+  "AGENTS.md": {
+    "kind": "file",
+    "sha256": "cf29e0c5b47b6353fe62d852be87ff70b6ae95f92cc97729869e18001911804b",
+    "bytes": 1886
+  },
+  "Neural.ipynb": {
+    "kind": "file",
+    "sha256": "583544cc370d534d2bd1bbf5323946fe3ea476dbb7e28b590614e7335458200c",
+    "bytes": 512843
+  },
+  "RavdessAudioOnlyNumpy__X_test.npy": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/RavdessAudioOnlyNumpy__X_test.npy"
+  },
+  "RavdessAudioOnlyNumpy__X_test_compresso.npy": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/RavdessAudioOnlyNumpy__X_test_compresso.npy"
+  },
+  "RavdessAudioOnlyNumpy__X_train.npy": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/RavdessAudioOnlyNumpy__X_train.npy"
+  },
+  "RavdessAudioOnlyNumpy__X_train_compresso.npy": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/RavdessAudioOnlyNumpy__X_train_compresso.npy"
+  },
+  "RavdessAudioOnlyNumpy__Y_test.csv": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/RavdessAudioOnlyNumpy__Y_test.csv"
+  },
+  "RavdessAudioOnlyNumpy__Y_train.csv": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/RavdessAudioOnlyNumpy__Y_train.csv"
+  },
+  "SVM.ipynb": {
+    "kind": "file",
+    "sha256": "59c70f3faa6f2b2ac1facd55d81c127d2a2197c7dee5e61c9f6de10b9c293483",
+    "bytes": 840417
+  },
+  "TIME SERIES/classification/emotion/RavdessAudioOnlyNumpy__X_test.npy": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__X_test.npy"
+  },
+  "TIME SERIES/classification/emotion/RavdessAudioOnlyNumpy__X_train.npy": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__X_train.npy"
+  },
+  "TIME SERIES/classification/emotion/RavdessAudioOnlyNumpy__Y_test.csv": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__Y_test.csv"
+  },
+  "TIME SERIES/classification/emotion/RavdessAudioOnlyNumpy__Y_train.csv": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__Y_train.csv"
+  },
+  "TIME SERIES/classification/emotion/dtw.ipynb": {
+    "kind": "file",
+    "sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+    "bytes": 8098
+  },
+  "TIME SERIES/classification/emotion/time_series_classification.ipynb": {
+    "kind": "file",
+    "sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+    "bytes": 66210
+  },
+  "TIME SERIES/classification/vocal channel/RavdessAudioOnlyNumpy__X_test_compresso.npy": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__X_test_compresso.npy"
+  },
+  "TIME SERIES/classification/vocal channel/RavdessAudioOnlyNumpy__X_train_compresso.npy": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__X_train_compresso.npy"
+  },
+  "TIME SERIES/classification/vocal channel/RavdessAudioOnlyNumpy__Y_test.csv": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__Y_test.csv"
+  },
+  "TIME SERIES/classification/vocal channel/RavdessAudioOnlyNumpy__Y_train.csv": {
+    "kind": "symlink",
+    "target": "../../../../shared/ravdess/RavdessAudioOnlyNumpy__Y_train.csv"
+  },
+  "TIME SERIES/classification/vocal channel/dtw_vocal.ipynb": {
+    "kind": "file",
+    "sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+    "bytes": 20879
+  },
+  "TIME SERIES/classification/vocal channel/time_series_classification_vocal.ipynb": {
+    "kind": "file",
+    "sha256": "146ddab87d4ccf2cf2010c785e6247c7a66875ed998eefefc2dceed1239c9821",
+    "bytes": 66581
+  },
+  "Test_ripulito (1)": {
+    "kind": "symlink",
+    "target": "data/Test_ripulito (1)"
+  },
+  "Train_NOoutliers": {
+    "kind": "symlink",
+    "target": "data/Train_NOoutliers"
+  },
+  "Train_ripulito": {
+    "kind": "symlink",
+    "target": "data/Train_ripulito"
+  },
+  "archives/Neural.rar": {
+    "kind": "file",
+    "sha256": "b41ca87a11c44ade24e138ed6fcd667888d161274c9fb1123515a460731595bd",
+    "bytes": 222251
+  },
+  "archives/Neural.zip": {
+    "kind": "file",
+    "sha256": "0f368086ba6400aef0db3fdce98055035f0f9c63638fd05e3b3227548337dac2",
+    "bytes": 227930
+  },
+  "archives/TIME SERIES.zip": {
+    "kind": "file",
+    "sha256": "5d7dcc052c94b3f65d3d613b643f1b231a2080b16d8bb9f1a38c31ea3e640cdf",
+    "bytes": 2966531
+  },
+  "archives/dati time series.zip": {
+    "kind": "file",
+    "sha256": "c02d8847eb8fcf5a49627b41d28f1c04bb40bcc3b0dba077d713c86f5d4081f2",
+    "bytes": 796061620
+  },
+  "archives/dtw.zip": {
+    "kind": "file",
+    "sha256": "8f130c7282c94d97c37d0c66b95f51fa2caa9c25902a340efd5f7af8faaf0d62",
+    "bytes": 1882
+  },
+  "archives/ensemble_gradient_boosting.rar": {
+    "kind": "file",
+    "sha256": "81c58a75661946b1f6e2c94ed393189b2a2405c325d966f379b2ed04bc869af2",
+    "bytes": 227088
+  },
+  "archives/ensemble_gradient_boosting.zip": {
+    "kind": "file",
+    "sha256": "92f8a450b1e03f01802a5d7175fd65d073086ac3c2acefed34505ba0d5d696e0",
+    "bytes": 230719
+  },
+  "archives/regression.zip": {
+    "kind": "file",
+    "sha256": "670f19f8ea31dbb11d8c2e4620b81165b68d2d01dd6e36fd88b500477c52e547",
+    "bytes": 5014
+  },
+  "archives/time_series_classification.zip": {
+    "kind": "file",
+    "sha256": "89e3642f78cfbb91d3863f5fc5d1123e8ff1cd4dc9607861cb7837bbb2768b5a",
+    "bytes": 30737
+  },
+  "best_model_DROPOUT.h5": {
+    "kind": "symlink",
+    "target": "models/best_model_DROPOUT.h5"
+  },
+  "best_model_L1.h5": {
+    "kind": "symlink",
+    "target": "models/best_model_L1.h5"
+  },
+  "best_model_L2.h5": {
+    "kind": "symlink",
+    "target": "models/best_model_L2.h5"
+  },
+  "best_model_NOREG.h5": {
+    "kind": "symlink",
+    "target": "models/best_model_NOREG.h5"
+  },
+  "data/Test_ripulito (1)": {
+    "kind": "file",
+    "sha256": "bb08a918287f514790c1fed3164c987602f899488c539aa48cbfd95c6c3996d5",
+    "bytes": 2027437
+  },
+  "data/Train_NOoutliers": {
+    "kind": "file",
+    "sha256": "4d8bd5f1720510406ac2ad9f2c1d6b1d2023e2a906ee00b50db3893bb7c7e65e",
+    "bytes": 5958952
+  },
+  "data/Train_ripulito": {
+    "kind": "file",
+    "sha256": "6e3134d3878f9c3cf90fba72fb2498ac193ab2670e6a56a4e4668c5e16a794ae",
+    "bytes": 6294254
+  },
+  "data_exploration.ipynb": {
+    "kind": "file",
+    "sha256": "d667d033f56554af549d3daaead5ceb0456c822593ce68859788c37f18a02f8e",
+    "bytes": 102962
+  },
+  "dim_reduction.ipynb": {
+    "kind": "file",
+    "sha256": "349c68dfd5d906fb0738eea58072d870da57f6b11b7253a96af914a749fd68b2",
+    "bytes": 447248
+  },
+  "dtw copy.ipynb": {
+    "kind": "file",
+    "sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+    "bytes": 20879
+  },
+  "dtw.ipynb": {
+    "kind": "file",
+    "sha256": "69bac34df85a20e1acbebf11454f68f44334475b45386c2ad9c5796d901b6906",
+    "bytes": 8098
+  },
+  "dtw_vocal.ipynb": {
+    "kind": "file",
+    "sha256": "04edba7162d72cca1f3be80dbf9c8ca0bf3e74a0f1120f349f5c6e1e81b09893",
+    "bytes": 20879
+  },
+  "ensemble_gradient_boosting.ipynb": {
+    "kind": "file",
+    "sha256": "e78e4c3e5d7263f3e02568ea7cc7651ad95fb4452651df9eccf372d00736d8d8",
+    "bytes": 427810
+  },
+  "explainability.ipynb": {
+    "kind": "file",
+    "sha256": "a1d9a153d4fa0c15089a02888e81950a4e6b2a263c8c7b5455d05b43904abd07",
+    "bytes": 1934431
+  },
+  "lib/lore/.DS_Store": {
+    "kind": "file",
+    "sha256": "04e5c33c94f9f2a16f25450d2c2182cc28b97e315f583de4716fa2135a1edda2",
+    "bytes": 6148
+  },
+  "lib/lore/Icon_": {
+    "kind": "file",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "lib/lore/__init__.py": {
+    "kind": "file",
+    "sha256": "970f1934895f776c952f752cd67865b5022cbc23508eb4c835d57960f0ea46bc",
+    "bytes": 28
+  },
+  "lib/lore/datamanager (1).py": {
+    "kind": "file",
+    "sha256": "d7e2e3c4178f137c306605bd7d7463f46e0f6a4197aca5703d979f094e80f122",
+    "bytes": 7036
+  },
+  "lib/lore/datamanager.py": {
+    "kind": "file",
+    "sha256": "8d74ae4b396d86b13d74035cbf7287e7279a9c43fc68ed562974fc572ee798ab",
+    "bytes": 5736
+  },
+  "lib/lore/decision_tree.py": {
+    "kind": "file",
+    "sha256": "ecc6f9845241a98142b765a463c0123f5642a551bc7c441bd85e27cf9bbf25a4",
+    "bytes": 2739
+  },
+  "lib/lore/explanation.py": {
+    "kind": "file",
+    "sha256": "348d88a3fa3189196187e22449670b00eaddb72fb3dcbcc363c7695d3c20f287",
+    "bytes": 7567
+  },
+  "lib/lore/lorem.py": {
+    "kind": "file",
+    "sha256": "1a56d4e5a31e19e4610a55a7c23965e3fa83207a740f70b70bb9c84a247a8d63",
+    "bytes": 14136
+  },
+  "lib/lore/neighgen.py": {
+    "kind": "file",
+    "sha256": "0d105b34a486d0b2ea415d0f674462303dd9c32925b5c33e5834b406c64d669a",
+    "bytes": 20538
+  },
+  "lib/lore/rule.py": {
+    "kind": "file",
+    "sha256": "d102928fb359373bba7efae2bb3bf16697a3d9a3a88bd22c9b02dd3b4a90a26b",
+    "bytes": 13196
+  },
+  "lib/lore/util.py": {
+    "kind": "file",
+    "sha256": "388fa5bc289493d4ef27befc749634be4d83fd140a6b2a142a0eeaf03adfb5d5",
+    "bytes": 7008
+  },
+  "lime.ipynb": {
+    "kind": "file",
+    "sha256": "d1eef6a714430ea41496c0c28290e7f014af7f9eb3b002443694921c88d1eb73",
+    "bytes": 1937200
+  },
+  "lore": {
+    "kind": "symlink",
+    "target": "lib/lore"
+  },
+  "lore.ipynb": {
+    "kind": "file",
+    "sha256": "e6d36fe77742109ade40abf3caf6dccfb0f16e14f642e30f1f217a83e058f5a5",
+    "bytes": 1746175
+  },
+  "matrix_profile.ipynb": {
+    "kind": "file",
+    "sha256": "ca797b2eb2f2c15e35102dd238901037c8892df2d6d7f658c11955d6a2e2331b",
+    "bytes": 363215
+  },
+  "models/best_model_DROPOUT.h5": {
+    "kind": "file",
+    "sha256": "fd6bc9b6f4e821f0b40f1b61292447455f202e8493a07742742719075c49f20e",
+    "bytes": 452944
+  },
+  "models/best_model_L1.h5": {
+    "kind": "file",
+    "sha256": "bbfa0a4540adf9a6ad59836c23d4c03ed40fb70effbd5287cc89bb687434792c",
+    "bytes": 451296
+  },
+  "models/best_model_L2.h5": {
+    "kind": "file",
+    "sha256": "40ba69f75907e85455ecea36b6636e1e7c24bcc46d08780ab6838a08614089d4",
+    "bytes": 451296
+  },
+  "models/best_model_NOREG.h5": {
+    "kind": "file",
+    "sha256": "e496ce72dc1fb8ae2cf24a04291fc93107c2d83e9ff88532c165f31abfd02c27",
+    "bytes": 451296
+  },
+  "outputs/catboost_info/catboost_training.json": {
+    "kind": "file",
+    "sha256": "9173d20cb85707b9433d29869428c9e04bd635b1274603b0a5fd528bf45c5aa0",
+    "bytes": 96777
+  },
+  "outputs/catboost_info/learn/events.out.tfevents": {
+    "kind": "file",
+    "sha256": "ca427dfcf95a0c0a6f7d52bb41ec2f95330f68fe8aa650cf110308d4fea60423",
+    "bytes": 60870
+  },
+  "outputs/catboost_info/learn_error.tsv": {
+    "kind": "file",
+    "sha256": "9dd7a73ee4cdc85c3a547524970a4ce52f5d381e914b84882416c18a0177a679",
+    "bytes": 16796
+  },
+  "outputs/catboost_info/time_left.tsv": {
+    "kind": "file",
+    "sha256": "d1d72c34a8d5db9cadb1826b4f3740672692d9602d0533c2cbc65ef75e15ea2d",
+    "bytes": 16170
+  },
+  "outputs/output.png": {
+    "kind": "file",
+    "sha256": "162f40995e86fc09d767b176bb1ece49219acb6bca7f498fc962a52d05cf5c06",
+    "bytes": 45988
+  },
+  "ravdess_dm2_2223": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/ravdess_dm2_2223"
+  },
+  "ravdess_timeseries_import.ipynb": {
+    "kind": "file",
+    "sha256": "6bd4592348d3e0e96b8847cbf82531f5f763da40c3b9b98c59b5065680709307",
+    "bytes": 105927
+  },
+  "ravdess_ts": {
+    "kind": "symlink",
+    "target": "../shared/ravdess/ravdess_ts"
+  },
+  "regression.ipynb": {
+    "kind": "file",
+    "sha256": "8e7fccd8292d9f642353b473a54c96bb86d0be7e83e75f1df2a796664495e6cc",
+    "bytes": 11204
+  },
+  "shaplet_classification.ipynb": {
+    "kind": "file",
+    "sha256": "1bada2ca4bc81618dfd8c668bb1727e0abd92370b1231e517c2be6dab6ba099d",
+    "bytes": 117785
+  },
+  "shaplet_classification_vocal.ipynb": {
+    "kind": "file",
+    "sha256": "01943819a60a131d856e10254ccc224b5d3465152a8f7a58c0e96653caf44149",
+    "bytes": 96627
+  },
+  "time_series_classification.ipynb": {
+    "kind": "file",
+    "sha256": "65e514b8daf33e93f3c3277fdc5d5580b64f2447105e3c35d650d15325e35fc5",
+    "bytes": 66210
+  },
+  "time_series_classification_vocal.ipynb": {
+    "kind": "file",
+    "sha256": "cd7c0836eb39d8964918aaab86859344d51a6625b1a0547afb87f75e30735950",
+    "bytes": 73261
+  },
+  "timeseries_preparation.ipynb": {
+    "kind": "file",
+    "sha256": "051b22e169d26fe21cfa8c732f1fba55d1c3433cb0d97257c37e6899cd9b3951",
+    "bytes": 289583
+  },
+  "ts_clustering.ipynb": {
+    "kind": "file",
+    "sha256": "56d1eb103f879ee9e215d7212b63591421c1587796923c783fb7cf2011b1036d",
+    "bytes": 1250754
+  },
+  "ts_clustering_compresso.ipynb": {
+    "kind": "file",
+    "sha256": "a9e9e8e1f3ef7e473434ef0ee8b5b7df888a919bf1c6736818e38f9389439e56",
+    "bytes": 1099606
+  }
+}

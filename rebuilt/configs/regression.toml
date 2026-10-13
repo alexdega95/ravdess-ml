@@ -1,0 +1,22 @@
+# New actor-aware analysis using the cleaned artifacts from the ensemble notebook.
+target = "kur"
+task = "kur_regression"
+categorical_columns = ["vocal_channel", "emotion", "emotional_intensity", "statement", "repetition", "sex"]
+seed = 42
+metadata_columns = [
+  "modality", "vocal_channel", "emotion", "emotional_intensity", "statement",
+  "repetition", "actor", "sex", "filename",
+]
+train_actors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+test_actors = [19, 20, 21, 22, 23, 24]
+
+[dataset]
+variant = "cleaned"
+
+[regression]
+cv_folds = 5
+parallel_jobs = 3
+alphas = [0.5, 0.99, 0.4, 0.1, 0.01, 0.001, 0.0001]
+forest_trials = 30
+forest_min_samples_split = [2, 5, 10, 20, 30, 50, 100]
+forest_min_samples_leaf = [1, 5, 10, 20, 30, 50, 100]
