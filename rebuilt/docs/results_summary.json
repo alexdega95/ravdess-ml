@@ -15,7 +15,7 @@
         "f1_macro": 0.4155011969983793
       },
       "report": "baseline_results.json",
-      "validation_evidence": "validation.md"
+      "validation_evidence": null
     },
     {
       "label": "Cleaned-feature random forest",
@@ -31,7 +31,7 @@
         "f1_macro": 0.3942518378764347
       },
       "report": "tabular_results.json",
-      "validation_evidence": "tabular_analysis.md"
+      "validation_evidence": null
     },
     {
       "label": "Gradient boosting",
@@ -47,7 +47,7 @@
         "f1_macro": 0.4520429520249779
       },
       "report": "gradient_boosting_results.json",
-      "validation_evidence": "boosting_analysis.md"
+      "validation_evidence": null
     },
     {
       "label": "XGBoost",
@@ -63,7 +63,7 @@
         "f1_macro": 0.4335177521117635
       },
       "report": "xgboost_results.json",
-      "validation_evidence": "boosting_analysis.md"
+      "validation_evidence": null
     },
     {
       "label": "Dense network: dropout variant",
@@ -128,7 +128,7 @@
         "roc_auc": 0.7113405257936509
       },
       "report": "svm_results.json",
-      "validation_evidence": "svm_analysis.md"
+      "validation_evidence": null
     },
     {
       "label": "Euclidean 1-NN",
@@ -178,7 +178,7 @@
         "r2": 0.7516454417530276
       },
       "report": "regression_results.json",
-      "validation_evidence": "regression_analysis.md"
+      "validation_evidence": null
     }
   ],
   "historical_notebook_outputs": {

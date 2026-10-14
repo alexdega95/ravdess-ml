@@ -4,7 +4,7 @@ This page consolidates existing reports. No models were trained to generate it. 
 
 ## Completed rebuilt experiments
 
-All classification scores below are fixed-test accuracy and macro F1, not validation scores. Actors 01–18 supply training data; actors 19–24 supply test data. Candidate selection uses training actors only, where applicable. The test set was already examined in the academic project; these are not fresh independent benchmarks. Recorded artifact checks are linked in the machine-readable index and detailed analyses; they were performed when each run completed, rather than rerun for this documentation update.
+All classification scores below are fixed-test accuracy and macro F1, not validation scores. Actors 01–18 supply training data; actors 19–24 supply test data. Candidate selection uses training actors only, where applicable. The test set was already examined in the academic project; these are not fresh independent benchmarks. Standalone artifact-verification reports are linked in the machine-readable index where available; a null verification reference means no standalone verification report is included. The recorded checks were performed when the runs completed, not rerun for this documentation update. [Project guide and methodology](../../README.md).
 
 ### Eight-class emotion classification
 
@@ -43,7 +43,7 @@ Speech/song classification is a separate two-class problem; 98.56% here does not
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Lasso: alpha=0.1 | 1809 / 624 | 9.68607 | 3.11225 | 1.78256 | 0.75165 |
 
-Regression includes emotion among the predictors and is not an emotion classifier. [Saved report](regression_results.json), [fixed-setting historical diagnostics](regression_analysis.md).
+Regression includes emotion among the predictors and is not an emotion classifier. [Saved report](regression_results.json), [fixed-setting historical diagnostics](regression_comparison.json).
 
 ## Original notebook results
 
@@ -58,7 +58,7 @@ The following accuracies are copied from saved root-notebook outputs, at their d
 | MiniROCKET | 55% | 99% |
 | Euclidean 1-NN | 17% | 58% |
 
-Copied vocal notebooks report ROCKET 93% and MiniROCKET 98%, versus 92% and 99% in the root notebook. Both versions are preserved. [Original reports, macro F1 and notebook/cell references](legacy_timeseries_results.md).
+Copied vocal notebooks report ROCKET 93% and MiniROCKET 98%, versus 92% and 99% in the root notebook. Both versions are preserved. [Original reports, macro F1 and notebook/cell references](legacy_timeseries_results.json).
 
 Read-only reloads of the four original neural checkpoints also reproduced their saved accuracies to displayed precision. These checks validate existing artifacts, not retraining:
 
@@ -69,7 +69,7 @@ Read-only reloads of the four original neural checkpoints also reproduced their 
 | `best_model_L2.h5` | 47.4359% |
 | `best_model_NOREG.h5` | 39.1026% |
 
-[Checkpoint evidence](neural_legacy_comparison.json), [neural methodology and original unsaved variants](neural_analysis.md).
+[Checkpoint evidence](neural_legacy_comparison.json), [neural methodology](../../README.md#methodology-and-reproducibility).
 
 ## Cancelled and incomplete runs
 
@@ -79,7 +79,7 @@ Read-only reloads of the four original neural checkpoints also reproduced their 
 | Emotion SAX/DTW | Cancelled | Verified SAX preprocessing and partial predictions |
 | Vocal-channel SAX/DTW | Cancelled | Verified SAX preprocessing and partial predictions |
 
-Partial predictions and feature caches are not complete scores. Completed vocal MiniROCKET results remain preserved. Do not launch or resume comparable long runs without an explicit request.
+Partial predictions and feature caches remain in the separate academic workspace, outside this public checkout, and are not complete scores. Completed vocal MiniROCKET results remain preserved. Do not launch or resume comparable long runs without an explicit request.
 
 ## Reproducibility limits and remaining work
 
@@ -90,4 +90,4 @@ Partial predictions and feature caches are not complete scores. Completed vocal 
 - Added actor validation, missing original seeds and changed library runtimes are explicit rebuild choices. Numerical proximity does not establish equivalence or statistical improvement.
 - Remaining ensembles, exploratory embeddings, shapelets, clustering, motifs and explanations are documented academic analyses whose full rebuild remains incomplete.
 
-See [methodology](methodology.md), [experiment map](experiment_map.md), [validation record](validation.md), and [machine-readable index](results_summary.json).
+See the [project guide](../../README.md) and [machine-readable index](results_summary.json).

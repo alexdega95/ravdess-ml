@@ -8,17 +8,17 @@ from pathlib import Path
 
 # Labels explain the experiment; all numeric results come from saved reports.
 EXPERIMENTS = (
-    ("baseline_results.json", "Raw-feature random forest", "emotion", "425 numeric", "random_forest", "validation.md"),
-    ("tabular_results.json", "Cleaned-feature random forest", "emotion", "197 numeric", None, "tabular_analysis.md"),
-    ("gradient_boosting_results.json", "Gradient boosting", "emotion", "197 numeric", None, "boosting_analysis.md"),
-    ("xgboost_results.json", "XGBoost", "emotion", "197 numeric", None, "boosting_analysis.md"),
+    ("baseline_results.json", "Raw-feature random forest", "emotion", "425 numeric", "random_forest", None),
+    ("tabular_results.json", "Cleaned-feature random forest", "emotion", "197 numeric", None, None),
+    ("gradient_boosting_results.json", "Gradient boosting", "emotion", "197 numeric", None, None),
+    ("xgboost_results.json", "XGBoost", "emotion", "197 numeric", None, None),
     ("neural_results.json", "Dense network: dropout variant", "emotion", "202 numeric/categorical", None, "neural_artifact_validation.json"),
     ("neural_search_results.json", "Dense network: parameter search", "emotion", "202 numeric/categorical", None, "neural_search_artifact_validation.json"),
     ("timeseries_emotion_results.json", "Waveform Euclidean 1-NN", "emotion", "raw [45000:100000]", None, "timeseries_emotion_validation.json"),
-    ("svm_results.json", "Binary linear SVM", "positive_negative", "197 numeric", None, "svm_analysis.md"),
+    ("svm_results.json", "Binary linear SVM", "positive_negative", "197 numeric", None, None),
     ("timeseries_vocal_results.json", "Euclidean 1-NN", "vocal_channel", "compressed [5000:13000]", None, "timeseries_vocal_validation.json"),
     ("timeseries_vocal_full_results.json", "MiniROCKET", "vocal_channel", "compressed [5000:13000]", None, "timeseries_vocal_full_validation.json"),
-    ("regression_results.json", "Lasso: alpha=0.1", "kur_regression", "202 numeric/categorical", None, "regression_analysis.md"),
+    ("regression_results.json", "Lasso: alpha=0.1", "kur_regression", "202 numeric/categorical", None, None),
 )
 
 
@@ -37,7 +37,7 @@ def summarize(docs):
         fit_rows = report["inputs"]["train"]["rows"]
         if filename == "neural_results.json":
             fit_rows = report["validation"]["folds"][0]["train_rows"]
-        if not (docs / evidence).is_file():
+        if evidence is not None and not (docs / evidence).is_file():
             raise ValueError(f"Missing validation evidence: {evidence}")
         rows.append({"label": label, "task": task, "inputs": inputs,
                      "training_table_rows": report["inputs"]["train"]["rows"],
@@ -65,8 +65,10 @@ def summarize(docs):
              "Actors 01–18 supply training data; actors 19–24 supply test data. "
              "Candidate selection uses training actors only, where applicable. "
              "The test set was already examined in the academic project; these are not fresh independent benchmarks. "
-             "Recorded artifact checks are linked in the machine-readable index and detailed analyses; "
-             "they were performed when each run completed, rather than rerun for this documentation update.", ""]
+             "Standalone artifact-verification reports are linked in the machine-readable index where available; "
+             "a null verification reference means no standalone verification report is included. "
+             "The recorded checks were performed when the runs completed, not rerun for this documentation update. "
+             "[Project guide and methodology](../../README.md).", ""]
     for task, heading in (("emotion", "Eight-class emotion classification"),
                           ("positive_negative", "Binary emotion task"),
                           ("vocal_channel", "Vocal channel: speech versus song")):
@@ -102,7 +104,7 @@ def summarize(docs):
               f"| {row['label']} | {row['final_fit_rows']} / {row['test_rows']} "
               f"| {m['mse']:.5f} | {m['rmse']:.5f} | {m['mae']:.5f} | {m['r2']:.5f} |", "",
               "Regression includes emotion among the predictors and is not an emotion classifier. "
-              "[Saved report](regression_results.json), [fixed-setting historical diagnostics](regression_analysis.md).", "",
+              "[Saved report](regression_results.json), [fixed-setting historical diagnostics](regression_comparison.json).", "",
               "## Original notebook results", "",
               "The following accuracies are copied from saved root-notebook outputs, at their displayed precision. "
               "They are historical observations, not independently reproduced full runs.", "",
@@ -114,7 +116,7 @@ def summarize(docs):
         lines.append(f"| {method} | {100*float(values['emotion']):.0f}% | {100*float(values['vocal_channel']):.0f}% |")
     lines += ["", "Copied vocal notebooks report ROCKET 93% and MiniROCKET 98%, versus 92% and 99% "
               "in the root notebook. Both versions are preserved. "
-              "[Original reports, macro F1 and notebook/cell references](legacy_timeseries_results.md).", "",
+              "[Original reports, macro F1 and notebook/cell references](legacy_timeseries_results.json).", "",
               "Read-only reloads of the four original neural checkpoints also reproduced their saved accuracies "
               "to displayed precision. These checks validate existing artifacts, not retraining:", "",
               "| Original checkpoint | Reloaded test accuracy |",
@@ -122,14 +124,15 @@ def summarize(docs):
     for name, metrics in checkpoints["models"].items():
         lines.append(f"| `{name}` | {100*metrics['accuracy']:.4f}% |")
     lines += ["", "[Checkpoint evidence](neural_legacy_comparison.json), "
-              "[neural methodology and original unsaved variants](neural_analysis.md).", "",
+              "[neural methodology](../../README.md#methodology-and-reproducibility).", "",
               "## Cancelled and incomplete runs", "",
               "| Run | Status | Retained evidence |",
               "| --- | --- | --- |",
               "| Full emotion ROCKET/MiniROCKET comparison | Cancelled | Frozen sources and partial ROCKET feature cache |",
               "| Emotion SAX/DTW | Cancelled | Verified SAX preprocessing and partial predictions |",
               "| Vocal-channel SAX/DTW | Cancelled | Verified SAX preprocessing and partial predictions |", "",
-              "Partial predictions and feature caches are not complete scores. Completed vocal MiniROCKET results "
+              "Partial predictions and feature caches remain in the separate academic workspace, outside this public checkout, "
+              "and are not complete scores. Completed vocal MiniROCKET results "
               "remain preserved. Do not launch or resume comparable long runs without an explicit request.", "",
               "## Reproducibility limits and remaining work", "",
               "- Raw WAV import reproduced both original NPY hashes across all 2,452 recordings. "
@@ -144,8 +147,7 @@ def summarize(docs):
               "Numerical proximity does not establish equivalence or statistical improvement.",
               "- Remaining ensembles, exploratory embeddings, shapelets, clustering, motifs and explanations "
               "are documented academic analyses whose full rebuild remains incomplete.", "",
-              "See [methodology](methodology.md), [experiment map](experiment_map.md), "
-              "[validation record](validation.md), and [machine-readable index](results_summary.json).", ""]
+              "See the [project guide](../../README.md) and [machine-readable index](results_summary.json).", ""]
     return json.dumps(result, indent=2, ensure_ascii=False) + "\n", "\n".join(lines)
 
 
